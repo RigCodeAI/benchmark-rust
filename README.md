@@ -102,7 +102,7 @@ For every shape, the projector requires matching compiler discovery, generated
 traffic, a route-bound runtime finding, and the signed instrumentation inventory.
 These are qualification obligations rather than extra CWE score rows. Unsupported
 or ambiguous extractor/provider shapes fail closed as described in
-[`docs/rust-axum-source-coverage.md`](../../docs/rust-axum-source-coverage.md).
+[`docs/rust-axum-source-coverage.md`](docs/rust-axum-source-coverage.md).
 
 The scorer checks retained `rust-compiler-facts.json` and
 `rust-instrumentation-report.json` against the runtime findings. Merely
@@ -120,15 +120,15 @@ CWE-89 SQL injection, and CWE-918 SSRF—plus 19 Python-equivalent semantic
 categories and nine Rust-specific runtime/build-provenance categories, with one
 authoritative positive and one authoritative safe control per slice. Those
 categories and their exact coordinates are documented in
-[`docs/rust-python-semantic-parity.md`](../../docs/rust-python-semantic-parity.md)
+[`docs/rust-python-semantic-parity.md`](docs/rust-python-semantic-parity.md)
 and
-[`docs/rust-specific-security-coverage.md`](../../docs/rust-specific-security-coverage.md).
+[`docs/rust-specific-security-coverage.md`](docs/rust-specific-security-coverage.md).
 The compiler-shape routes add qualification obligations without being counted as
 new CWE score rows; deliberately unresolved provider/macro and semantic shapes
 remain explicit `UNKNOWN` controls. Controller-owned authorization,
 authentication, CSRF, tenant-isolation, workflow, concurrency, and multi-service
 cases execute through the same ordinary product path and are documented in
-[`docs/rust-controller-security-coverage.md`](../../docs/rust-controller-security-coverage.md).
+[`docs/rust-controller-security-coverage.md`](docs/rust-controller-security-coverage.md).
 Independent held-out evidence also remains unavailable by design. The benchmark
 therefore measures the product honestly instead of converting the executable
 language corpus's expected answers into product evidence.
@@ -233,4 +233,4 @@ Generated Cargo `target` directories and mutable live-run artifacts are never
 retained inside the corpus.
 
 The architecture and promotion policy are documented in the
-[BenchmarkRust qualification plan](../../docs/benchmark-rust-plan.md).
+[BenchmarkRust qualification plan](docs/benchmark-rust-plan.md).
