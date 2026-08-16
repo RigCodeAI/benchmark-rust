@@ -81,7 +81,7 @@ distinct external repository IDs, independently owned truth digests, vulnerable
 and safe coverage across all 43 categories, authenticated product evidence,
 `FINAL`, and `COMPLETE`. Checked-in Axum or Actix fixtures can never satisfy that
 gate. See
-[`BenchmarkRust held-out evidence`](../benchmarks/benchmark-rust-v1/held-out/README.md).
+[`BenchmarkRust held-out evidence`](../held-out/README.md).
 
 ## Reproduction
 

@@ -118,7 +118,7 @@ make test-rust-benchmark
 ```
 
 For the ordinary product path and projector commands, see the
-[BenchmarkRust README](../benchmarks/benchmark-rust-v1/README.md). The native
+[BenchmarkRust README](../README.md). The native
 semantic registry is implemented in
 `native-runtime/crates/language/src/rust_discovery/semantic_sinks.rs`; runtime
 observations are emitted by

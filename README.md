@@ -29,20 +29,25 @@ sealed transcripts, authenticated readback, deterministic replay, hostile-input
 containment, `FINAL`, `COMPLETE`, and zero false positives or false negatives
 before setting `promotion_eligible=true`.
 
-## Run the complete benchmark contract
+## Run the benchmark-owned components
 
 ```console
-make test-rust-benchmark
+cargo +1.97.1 run --release \
+  --manifest-path corpus/language/Cargo.toml
+cargo test --locked
 ```
 
-This builds the native Rig binary, builds and executes the 172-case language
-corpus with the pinned Rust 1.97.1 toolchain, compiles the exact Axum application
-with that same toolchain, runs the application through ordinary `rig run`,
-verifies the signed publication and compiler-shape runtime findings, projects only evidence-backed benchmark cases,
-runs discovery twice, exercises the hostile/fail-closed controls, and writes:
+The first command executes the 172-case language corpus using the pinned
+toolchain. The second builds and tests the independent scorer. Product scanners
+are integrated through the versioned evidence contract in
+[`SCANNER-CONTRACT.md`](SCANNER-CONTRACT.md); they do not own scoring or truth.
 
-```text
-benchmarks/benchmark-rust-v1/qualification-report-v2.json
+After a scanner adapter produces evidence, score it with:
+
+```console
+cargo run --release -- score \
+  --evidence /immutable/scanner-evidence.json \
+  --output /immutable/score.json
 ```
 
 The current expected contract result is:
@@ -133,8 +138,8 @@ Independent held-out evidence also remains unavailable by design. The benchmark
 therefore measures the product honestly instead of converting the executable
 language corpus's expected answers into product evidence.
 
-The target host must have the `1.97.1` rustup toolchain installed. The Make target
-uses `cargo +1.97.1` explicitly, and the corpus embeds its actual compiler/host
+The target host must have the `1.97.1` rustup toolchain installed. The corpus
+uses `cargo +1.97.1` explicitly and embeds its actual compiler/host
 coordinate. The scorer rejects a binary built by an adjacent compiler or for an
 unqualified host; `rust-version` alone is not treated as exact-coordinate proof.
 
@@ -146,14 +151,14 @@ truth; it verifies the campaign signature and developer artifact manifest, then
 projects only case-bound findings, closed negative obligations, and explicit
 capability gaps from retained product artifacts.
 
-To reproduce the locked application projection directly:
+For example, a Rig adapter may run the locked and unsupported applications and
+normalize the authenticated publication into the benchmark schema:
 
 ```console
 RUN_ROOT="$(mktemp -d /tmp/rig-benchmark-rust.XXXXXX)"
 
 set +e
-native-runtime/target/release/rig run \
-  benchmarks/benchmark-rust-v1/apps/axum-product \
+rig run apps/axum-product \
   --output "$RUN_ROOT/scan"
 STATUS=$?
 set -e
@@ -162,8 +167,7 @@ set -e
 test "$STATUS" -eq 10
 
 set +e
-native-runtime/target/release/rig run \
-  benchmarks/benchmark-rust-v1/controls/unqualified-coordinate \
+rig run controls/unqualified-coordinate \
   --output "$RUN_ROOT/unsupported-scan" \
   2> "$RUN_ROOT/unsupported-result.json"
 UNSUPPORTED_STATUS=$?
@@ -172,13 +176,14 @@ set -e
 # Exit 30 is the required fail-closed decision for an unqualified coordinate.
 test "$UNSUPPORTED_STATUS" -eq 30
 
-native-runtime/target/release/rig benchmark-rust \
-  --suite benchmarks/benchmark-rust-v1 \
-  --corpus-executable \
-    native-runtime/target/benchmark-rust-corpus/release/rig-benchmark-rust-language-corpus \
+rig benchmark-rust \
+  --suite . \
   --scan-result "$RUN_ROOT/scan/rust-scan-result.json" \
   --unsupported-result "$RUN_ROOT/unsupported-result.json" \
-  --projected-evidence-output "$RUN_ROOT/product-evidence.json" \
+  --projected-evidence-output "$RUN_ROOT/product-evidence.json"
+
+cargo run --release -- score \
+  --evidence "$RUN_ROOT/product-evidence.json" \
   --output "$RUN_ROOT/qualification.json"
 ```
 
@@ -190,17 +195,15 @@ that slice-specific TN. A positive receives only the evidence grade actually
 supported by the finding, and a missing case remains a false negative or
 unresolved obligation.
 
-Preprojected immutable evidence can still be scored with `--product-evidence`:
+Immutable evidence, including independently governed held-out evidence, is scored
+without invoking the scanner:
 
 ```console
-native-runtime/target/release/rig benchmark-rust \
-  --suite benchmarks/benchmark-rust-v1 \
-  --corpus-executable \
-    native-runtime/target/benchmark-rust-corpus/release/rig-benchmark-rust-language-corpus \
-  --product-evidence /immutable/run/benchmark-rust-product-evidence.json \
-  --held-out-evidence /immutable/held-out-a/evidence.json \
-  --held-out-evidence /immutable/held-out-b/evidence.json \
-  --held-out-evidence /immutable/held-out-c/evidence.json \
+cargo run --release -- score \
+  --evidence /immutable/run/benchmark-rust-product-evidence.json \
+  --held-out /immutable/held-out-a/evidence.json \
+  --held-out /immutable/held-out-b/evidence.json \
+  --held-out /immutable/held-out-c/evidence.json \
   --require-promotion \
   --output /immutable/run/benchmark-rust-qualification.json
 ```

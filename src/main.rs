@@ -11,6 +11,7 @@ const MAX_INPUT_BYTES: u64 = 64 * 1024 * 1024;
 struct Truth {
     suite_id: String,
     exact_family: Value,
+    source_digests: BTreeMap<String, String>,
     categories: Vec<Category>,
     repositories: Vec<Repository>,
     promotion_requirements: Requirements,
@@ -135,7 +136,7 @@ fn main() {
 fn run() -> Result<bool, String> {
     let arguments = parse_arguments()?;
     let truth: Truth = read_json(&arguments.truth)?;
-    validate_truth(&truth)?;
+    validate_truth(&truth, &arguments.truth)?;
     let evidence = read_evidence(&arguments.evidence, &truth, "LOCKED")?;
     let held_out = arguments
         .held_out
@@ -211,8 +212,8 @@ fn read_json<T: for<'de> Deserialize<'de>>(path: &Path) -> Result<T, String> {
         .map_err(|error| error.to_string())
 }
 
-fn validate_truth(truth: &Truth) -> Result<(), String> {
-    if truth.suite_id.is_empty() || truth.categories.is_empty() {
+fn validate_truth(truth: &Truth, truth_path: &Path) -> Result<(), String> {
+    if truth.suite_id.is_empty() || truth.categories.is_empty() || truth.source_digests.is_empty() {
         return Err("truth denominator is empty".to_owned());
     }
     let categories = truth
@@ -222,6 +223,32 @@ fn validate_truth(truth: &Truth) -> Result<(), String> {
         .collect::<BTreeSet<_>>();
     if categories.len() != truth.categories.len() {
         return Err("truth contains duplicate categories".to_owned());
+    }
+    let root = truth_path.parent().unwrap_or_else(|| Path::new("."));
+    for (relative, expected) in &truth.source_digests {
+        let relative_path = Path::new(relative);
+        if relative_path.is_absolute()
+            || relative_path
+                .components()
+                .any(|part| !matches!(part, std::path::Component::Normal(_)))
+        {
+            return Err(format!("unsafe source path: {relative}"));
+        }
+        let candidate = root.join(relative_path);
+        let metadata = std::fs::symlink_metadata(&candidate).map_err(|error| error.to_string())?;
+        if metadata.file_type().is_symlink()
+            || !metadata.is_file()
+            || metadata.len() > MAX_INPUT_BYTES
+        {
+            return Err(format!("unsafe source: {relative}"));
+        }
+        let observed = format!(
+            "sha256:{:x}",
+            Sha256::digest(std::fs::read(&candidate).map_err(|error| error.to_string())?)
+        );
+        if &observed != expected {
+            return Err(format!("source digest mismatch: {relative}"));
+        }
     }
     Ok(())
 }
@@ -506,4 +533,91 @@ fn valid_digest(value: &str) -> bool {
     value.len() == 71
         && value.starts_with("sha256:")
         && value[7..].bytes().all(|byte| byte.is_ascii_hexdigit())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn truth_path() -> PathBuf {
+        let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+        let v1 = root.join("truth-v1.json");
+        if v1.is_file() {
+            v1
+        } else {
+            root.join("truth-v2.json")
+        }
+    }
+
+    fn loaded_truth() -> Truth {
+        let path = truth_path();
+        let truth: Truth = read_json(&path).unwrap();
+        validate_truth(&truth, &path).unwrap();
+        truth
+    }
+
+    #[test]
+    fn locked_truth_sources_are_digest_closed() {
+        let truth = loaded_truth();
+        assert!(!truth.source_digests.is_empty());
+    }
+
+    #[test]
+    fn complete_four_state_evidence_scores_the_closed_denominator() {
+        let truth = loaded_truth();
+        let observations = truth
+            .categories
+            .iter()
+            .flat_map(|category| {
+                controls(category)
+                    .into_iter()
+                    .map(|(control, disposition, grade)| Observation {
+                        case_id: format!("{}-{control}", category.category.to_ascii_lowercase()),
+                        disposition: disposition.to_owned(),
+                        evidence_grade: grade.to_owned(),
+                        repository_path: format!("src/{control}/{}.rs", category.category),
+                        sink_identity: format!("{}-{control}", category.category),
+                    })
+            })
+            .collect();
+        let evidence = Evidence {
+            schema_version: String::new(),
+            suite_id: truth.suite_id.clone(),
+            layer: "LOCKED".to_owned(),
+            repository_id: String::new(),
+            independent_truth_digest: None,
+            runtime_coordinate: String::new(),
+            framework_coordinate: String::new(),
+            ordinary_product_path: true,
+            publication_state: truth
+                .promotion_requirements
+                .required_publication_state
+                .clone(),
+            coverage_verdict: truth
+                .promotion_requirements
+                .required_coverage_verdict
+                .clone(),
+            sealed_transcripts_verified: true,
+            authenticated_readback_verified: true,
+            failed_requests: 0,
+            unexpected_facts: 0,
+            unresolved_obligations: 0,
+            observations,
+            evidence_digest: format!("sha256:{}", "a".repeat(64)),
+        };
+        let report = score(&truth, evidence, &[]);
+        let categories = truth.categories.len() as u64;
+        assert_eq!(
+            (
+                report.score.tp,
+                report.score.fp,
+                report.score.fn_count,
+                report.score.tn,
+            ),
+            (categories, 0, 0, categories)
+        );
+        assert!(report.score.passed);
+        assert!(report.evidence_envelope_closed);
+        assert!(!report.promotion_eligible);
+    }
 }

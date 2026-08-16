@@ -2,7 +2,7 @@
   "schema_version": "rig-benchmark-rust-report/v2",
   "suite_id": "rig-benchmark-rust-v1",
   "suite_state": "QUALIFICATION",
-  "truth_digest": "sha256:812a5e4bec05ca81e7ab9293dd31e6d9ecb157e4887efb29d6c565cce17e3dc6",
+  "truth_digest": "sha256:2ffa3b7a97e6c975fb09926723e0890392009ffe2d9f156d855bfac14e6aebf6",
   "required_categories": 43,
   "required_controls": 172,
   "built_controls": 172,
@@ -880,5 +880,5 @@
       "observed": "unsupported_reason:true"
     }
   ],
-  "report_digest": "sha256:c6778bcc740d87b534df6d0db2901688943d5ccf3c12f696e5a1329221e183e6"
+  "report_digest": "sha256:5ece6f4a28ba0bbf49c8e57890153ea420d30cfe3ef5a00d34b37cd30d42f8ab"
 }

@@ -2,7 +2,7 @@
   "schema_version": "rig-benchmark-rust-truth/v2",
   "suite_id": "rig-benchmark-rust-v1",
   "suite_state": "QUALIFICATION",
-  "support_policy": "native-runtime/crates/language/data/support-policy-v1.json",
+  "support_policy": "support-policy-v1.json",
   "exact_family": {
     "runtime_coordinates": [
       "rustc-1.97.1-aarch64-apple-darwin",
@@ -20,6 +20,7 @@
     "expected_stdout": "BenchmarkRust language corpus: categories=43 controls=172 vulnerable=43 safe=43 unknown=43 unsupported=43"
   },
   "source_digests": {
+    "support-policy-v1.json": "sha256:52dc6aad00eb37318f4ae3359226c77a0da30ffc660b964e6a303ffe73c8a276",
     "controls/build-script/Cargo.lock": "sha256:3bb02941c74fabec00cd6dd7f26c84fa404d9c14f631d057a65e672a30219f42",
     "controls/build-script/Cargo.toml": "sha256:9564ba29ad1445a5eb43abfbf8e4a5008733e3b5457e0e614b275a319fd7bb35",
     "controls/build-script/build.rs": "sha256:df18ec77329fb9fd342c57086a048688f92e02a82364055b54c65753ac99a887",
