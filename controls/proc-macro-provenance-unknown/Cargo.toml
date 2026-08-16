@@ -1,0 +1,11 @@
+[package]
+name = "rig-benchmark-rust-proc-macro-provenance-unknown"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+proc-macro = true
+path = "generated/lib.rs"
+
+[dependencies]
+axum = "=0.8.9"

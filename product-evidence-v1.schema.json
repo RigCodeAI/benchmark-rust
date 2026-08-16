@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rig.local/schemas/benchmark-rust-product-evidence-v1.json",
+  "title": "BenchmarkRust ordinary-product evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_id",
+    "layer",
+    "repository_id",
+    "independent_truth_digest",
+    "runtime_coordinate",
+    "framework_coordinate",
+    "ordinary_product_path",
+    "publication_state",
+    "coverage_verdict",
+    "sealed_transcripts_verified",
+    "authenticated_readback_verified",
+    "failed_requests",
+    "unexpected_facts",
+    "unresolved_obligations",
+    "observations",
+    "evidence_digest"
+  ],
+  "properties": {
+    "schema_version": { "const": "rig-benchmark-rust-product-evidence/v1" },
+    "suite_id": { "const": "rig-benchmark-rust-v1" },
+    "layer": { "enum": ["LOCKED", "HELD_OUT"] },
+    "repository_id": { "type": "string", "minLength": 1 },
+    "independent_truth_digest": {
+      "type": ["string", "null"],
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "runtime_coordinate": { "type": "string", "minLength": 1 },
+    "framework_coordinate": { "type": "string", "minLength": 1 },
+    "ordinary_product_path": { "type": "boolean" },
+    "publication_state": { "enum": ["FINAL", "INCOMPLETE", "FAILED"] },
+    "coverage_verdict": { "enum": ["COMPLETE", "INCOMPLETE", "CANNOT_CERTIFY"] },
+    "sealed_transcripts_verified": { "type": "boolean" },
+    "authenticated_readback_verified": { "type": "boolean" },
+    "failed_requests": { "type": "integer", "minimum": 0 },
+    "unexpected_facts": { "type": "integer", "minimum": 0 },
+    "unresolved_obligations": { "type": "integer", "minimum": 0 },
+    "observations": {
+      "type": "array",
+      "maxItems": 172,
+      "items": { "$ref": "#/$defs/observation" }
+    },
+    "evidence_digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  },
+  "$defs": {
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "case_id",
+        "disposition",
+        "evidence_grade",
+        "repository_path",
+        "sink_identity"
+      ],
+      "properties": {
+        "case_id": { "type": "string", "minLength": 1 },
+        "disposition": {
+          "enum": ["FINDING", "CLEAN", "UNKNOWN", "UNSUPPORTED"]
+        },
+        "evidence_grade": {
+          "enum": [
+            "RUNTIME_SEMANTIC",
+            "RUNTIME_EFFECT",
+            "RUNTIME_VALUE_FLOW",
+            "RUNTIME_PROPERTY",
+            "RUNTIME_DIFFERENTIAL",
+            "RUNTIME_MEMORY",
+            "BUILD_PROVENANCE",
+            "CLOSED_DENOMINATOR",
+            "CAPABILITY_GAP",
+            "UNSUPPORTED_COORDINATE"
+          ]
+        },
+        "repository_path": { "type": "string", "minLength": 1 },
+        "sink_identity": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
+

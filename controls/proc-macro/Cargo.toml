@@ -1,0 +1,13 @@
+[package]
+name = "rig-benchmark-rust-proc-macro-control"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+proc-macro = true
+
+[workspace]
+
+[dependencies]
+axum = "=0.8.9"

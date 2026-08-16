@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rig.local/schemas/benchmark-rust-report-v2.json",
+  "title": "BenchmarkRust qualification report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_id",
+    "suite_state",
+    "truth_digest",
+    "required_categories",
+    "required_controls",
+    "built_controls",
+    "planned_controls",
+    "corpus_cases",
+    "corpus_complete",
+    "corpus_executed",
+    "corpus_runtime_coordinate",
+    "foundation_cases",
+    "passed_foundation_cases",
+    "foundation_conformance_passed",
+    "deterministic_replay_passed",
+    "hostile_repository_passed",
+    "resource_budgets_passed",
+    "ordinary_product_path_passed",
+    "held_out_applications_passed",
+    "sealed_transcripts_verified",
+    "authenticated_readback_verified",
+    "publication_state",
+    "coverage_verdict",
+    "layers",
+    "score",
+    "category_scores",
+    "promotion_eligible",
+    "reason_codes",
+    "cases",
+    "report_digest"
+  ],
+  "properties": {
+    "schema_version": { "const": "rig-benchmark-rust-report/v2" },
+    "suite_id": { "const": "rig-benchmark-rust-v1" },
+    "suite_state": { "const": "QUALIFICATION" },
+    "truth_digest": { "$ref": "#/$defs/digest" },
+    "required_categories": { "const": 43 },
+    "required_controls": { "const": 172 },
+    "built_controls": { "const": 172 },
+    "planned_controls": { "const": 0 },
+    "corpus_cases": { "const": 172 },
+    "corpus_complete": { "type": "boolean" },
+    "corpus_executed": { "type": "boolean" },
+    "corpus_runtime_coordinate": {
+      "enum": [
+        "NOT_RUN",
+        "rustc-1.97.1-aarch64-apple-darwin",
+        "rustc-1.97.1-x86_64-unknown-linux-gnu"
+      ]
+    },
+    "foundation_cases": { "const": 23 },
+    "passed_foundation_cases": { "type": "integer", "minimum": 0, "maximum": 23 },
+    "foundation_conformance_passed": { "type": "boolean" },
+    "deterministic_replay_passed": { "type": "boolean" },
+    "hostile_repository_passed": { "type": "boolean" },
+    "resource_budgets_passed": { "type": "boolean" },
+    "ordinary_product_path_passed": { "type": "boolean" },
+    "held_out_applications_passed": { "type": "boolean" },
+    "sealed_transcripts_verified": { "type": "boolean" },
+    "authenticated_readback_verified": { "type": "boolean" },
+    "publication_state": { "enum": ["NOT_RUN", "FINAL", "INCOMPLETE", "FAILED"] },
+    "coverage_verdict": { "enum": ["NOT_RUN", "COMPLETE", "INCOMPLETE", "CANNOT_CERTIFY"] },
+    "layers": { "$ref": "#/$defs/layers" },
+    "score": { "$ref": "#/$defs/score" },
+    "category_scores": {
+      "type": "array",
+      "minItems": 43,
+      "maxItems": 43,
+      "items": { "$ref": "#/$defs/category_score" }
+    },
+    "promotion_eligible": { "type": "boolean" },
+    "reason_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "cases": {
+      "type": "array",
+      "minItems": 23,
+      "maxItems": 23,
+      "items": { "$ref": "#/$defs/foundation_case" }
+    },
+    "report_digest": { "$ref": "#/$defs/digest" }
+  },
+  "$defs": {
+    "digest": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "layer_status": {
+      "enum": ["NOT_RUN", "INCOMPLETE", "COMPLETE"]
+    },
+    "layers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "language_corpus",
+        "framework_product",
+        "hostile_repository",
+        "held_out_applications"
+      ],
+      "properties": {
+        "language_corpus": { "$ref": "#/$defs/layer_status" },
+        "framework_product": { "$ref": "#/$defs/layer_status" },
+        "hostile_repository": { "$ref": "#/$defs/layer_status" },
+        "held_out_applications": { "$ref": "#/$defs/layer_status" }
+      }
+    },
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "tp",
+        "fp",
+        "fn",
+        "tn",
+        "unknown_controls_passed",
+        "unsupported_controls_passed",
+        "evidence_grade_mismatches",
+        "unresolved",
+        "unexpected_observations",
+        "passed"
+      ],
+      "properties": {
+        "status": { "$ref": "#/$defs/layer_status" },
+        "tp": { "type": "integer", "minimum": 0, "maximum": 43 },
+        "fp": { "type": "integer", "minimum": 0 },
+        "fn": { "type": "integer", "minimum": 0, "maximum": 43 },
+        "tn": { "type": "integer", "minimum": 0, "maximum": 43 },
+        "unknown_controls_passed": { "type": "integer", "minimum": 0, "maximum": 43 },
+        "unsupported_controls_passed": { "type": "integer", "minimum": 0, "maximum": 43 },
+        "evidence_grade_mismatches": { "type": "integer", "minimum": 0 },
+        "unresolved": { "type": "integer", "minimum": 0, "maximum": 172 },
+        "unexpected_observations": { "type": "integer", "minimum": 0 },
+        "passed": { "type": "boolean" }
+      }
+    },
+    "category_score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "mapping",
+        "required_evidence_grade",
+        "vulnerable",
+        "safe",
+        "unknown",
+        "unsupported",
+        "tp",
+        "fp",
+        "fn",
+        "tn",
+        "evidence_grade_mismatches",
+        "unresolved",
+        "passed"
+      ],
+      "properties": {
+        "category": { "type": "string", "minLength": 1 },
+        "mapping": { "enum": ["DIRECT", "ADAPTED", "CONTROLLER"] },
+        "required_evidence_grade": {
+          "enum": [
+            "RUNTIME_SEMANTIC",
+            "RUNTIME_EFFECT",
+            "RUNTIME_VALUE_FLOW",
+            "RUNTIME_PROPERTY",
+            "RUNTIME_DIFFERENTIAL",
+            "RUNTIME_MEMORY",
+            "BUILD_PROVENANCE"
+          ]
+        },
+        "vulnerable": { "type": "string" },
+        "safe": { "type": "string" },
+        "unknown": { "type": "string" },
+        "unsupported": { "type": "string" },
+        "tp": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "fp": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "fn": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "tn": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "evidence_grade_mismatches": { "type": "integer", "minimum": 0 },
+        "unresolved": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "passed": { "type": "boolean" }
+      }
+    },
+    "foundation_case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["case_id", "repository_id", "passed", "observed"],
+      "properties": {
+        "case_id": { "type": "string", "minLength": 1 },
+        "repository_id": { "type": "string", "minLength": 1 },
+        "passed": { "type": "boolean" },
+        "observed": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}
