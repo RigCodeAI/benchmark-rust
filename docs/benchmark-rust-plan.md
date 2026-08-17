@@ -134,13 +134,13 @@ signatures are verified before any observation is scored. The
 unqualified-coordinate repository is also executed through ordinary `rig run`;
 its exact fail-closed error is projected into the 43 unsupported controls.
 
-The current ordinary-product score is 43 TP / 0 FP / 0 FN / 43 TN, with 42
-expected unknown controls and zero evidence-grade mismatches. All controller
-reports are `COMPLETE`; one pre-existing CWE-22 capability-gap control remains
-unprojected, so the product envelope is still `CANNOT_CERTIFY`. This is the
-acceptance checkpoint for controller coverage, not Rust promotion: that unknown
-and the independently held-out applications must still close before `COMPLETE`
-and `promotion_eligible=true`.
+The current ordinary-product classification score is 43 TP / 0 FP / 0 FN /
+43 TN, with all 43 expected unknown controls projected, zero evidence-grade
+mismatches, and zero unresolved controls. The raw product envelope remains
+`CANNOT_CERTIFY` because the benchmark deliberately contains truth-declared
+unsupported semantic coordinates. This is an accuracy checkpoint, not Rust
+promotion: an ordinary closed product envelope and the independently held-out
+applications must still pass before `COMPLETE` and `promotion_eligible=true`.
 
 Build-script and proc-macro qualification is pre-execution evidence. Rig hashes
 resolved local executable source and blocks it, inventories the lockfile's package

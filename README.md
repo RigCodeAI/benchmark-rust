@@ -76,10 +76,10 @@ The current ordinary-product score is:
 
 ```text
 TP=43 FP=0 FN=0 TN=43
-unknown_controls_passed=42
+unknown_controls_passed=43
 unsupported_controls_passed=43  # after the required fail-closed control run
 evidence_grade_mismatches=0
-unresolved=1
+unresolved=0
 ```
 
 The same ordinary product run must also prove these compiler-backed shapes before
