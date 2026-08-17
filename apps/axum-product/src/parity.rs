@@ -155,6 +155,7 @@ async fn unknown(Query(input): Query<ParityInput>) -> &'static str {
     ambiguous::ldap(&input.secret);
     ambiguous::code(&input.secret);
     ambiguous::nosql(&input.secret);
+    ambiguous::filesystem(&input.secret);
     "ok"
 }
 
@@ -273,6 +274,7 @@ mod ambiguous {
     pub fn ldap(_: &str) {}
     pub fn code(_: &str) {}
     pub fn nosql(_: &str) {}
+    pub fn filesystem(_: &str) {}
 }
 
 #[cfg(test)]

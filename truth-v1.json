@@ -67,7 +67,7 @@
     "apps/axum-product/src/controller/concurrency.rs": "sha256:ee2f17f579c3b6137f9cd94b6c94f243d7ebbd032bc2f2a5a3438d096bf4a662",
     "apps/axum-product/src/controller/service.rs": "sha256:9ab4e121663cc319c56068e7dc1a07cb2ea101873351cbeb0a2aafe2dc406382",
     "apps/axum-product/src/rust_specific.rs": "sha256:abf4ca2228a077fa69b470d7fc36fbbda2dfe98fbb1c5fb18fd49957679a040d",
-    "apps/axum-product/src/parity.rs": "sha256:4fa2a8981c1b026d3ca4f5eb0dd73d3e8f79dbfd7f1ae04deaaa71164fa6671f",
+    "apps/axum-product/src/parity.rs": "sha256:02d11ed85107fddf6503d880b90ed9435ab77518793b1f0d6c5288830cede0a3",
     "apps/axum-product/src/generated_handlers.rs": "sha256:8f7d00d92841c3ad9c2c90196c5b003a665eb7aea4ffbd6f6029b8055ecc0844",
     "controls/dynamic-route/Cargo.lock": "sha256:aa7aa81c7cae84383522e0406660e76ac9ed39f16df42e74207f34ef096cf035",
     "controls/dynamic-route/Cargo.toml": "sha256:cfd8e384728f51dae346206301ebd40b1645467fde2457d35daa44f1d848a823",
@@ -262,6 +262,7 @@
   "product_cases": [
     {"case_id":"cwe-22-vulnerable","repository_id":"axum-product","route":"/files/{value}","control":"vulnerable","sink_family":"filesystem","rule_id":"IAST.FILESYSTEM.INJECTION"},
     {"case_id":"cwe-22-safe","repository_id":"axum-product","route":"/files/constant","control":"safe","sink_family":"filesystem"},
+    {"case_id":"cwe-22-unknown","repository_id":"axum-product","route":"/parity/unknown","control":"unknown","sink_family":"filesystem","reason_code":"rust_filesystem_semantic_coordinate_unresolved"},
     {"case_id":"cwe-78-vulnerable","repository_id":"axum-product","route":"/process/shell","control":"vulnerable","sink_family":"process","rule_id":"IAST.PROCESS.INJECTION"},
     {"case_id":"cwe-78-safe","repository_id":"axum-product","route":"/process/argv","control":"safe","sink_family":"process"},
     {"case_id":"cwe-78-unknown","repository_id":"axum-product","route":"/process/stored-builder","control":"unknown","sink_family":"process","reason_code":"rust_macro_expanded_sink_requires_runtime_interposition"},
