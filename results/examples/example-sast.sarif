@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "ExampleSAST",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://example.com/example-sast"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "EXAMPLE/CWE-89",
+          "message": {"text": "Example SQL injection result"},
+          "properties": {"cwe": "CWE-89", "route": "/sql/raw"}
+        },
+        {
+          "ruleId": "EXAMPLE/CWE-79",
+          "message": {"text": "Example cross-site scripting result"},
+          "properties": {"cwe": "CWE-79", "route": "/html/active"}
+        },
+        {
+          "ruleId": "EXAMPLE/RUST-FFI-BOUNDARY",
+          "message": {"text": "Example Rust FFI boundary result"},
+          "properties": {
+            "category": "RUST-FFI-BOUNDARY",
+            "route": "/rust-specific/ffi/vulnerable"
+          }
+        }
+      ]
+    }
+  ]
+}

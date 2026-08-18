@@ -1,0 +1,18 @@
+{
+  "schema_version": "security-benchmark-scanner-results/v1",
+  "benchmark_id": "rig-benchmark-rust-v1",
+  "tool": {
+    "name": "ExampleScanner",
+    "version": "1.0.0",
+    "kind": "OTHER"
+  },
+  "findings": [
+    {"category": "CWE-89", "route": "/sql/raw", "rule_id": "EXAMPLE.SQL"},
+    {"category": "CWE-79", "route": "/html/active", "rule_id": "EXAMPLE.XSS"},
+    {
+      "category": "RUST-FFI-BOUNDARY",
+      "route": "/rust-specific/ffi/vulnerable",
+      "rule_id": "EXAMPLE.FFI"
+    }
+  ]
+}

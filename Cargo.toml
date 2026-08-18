@@ -4,6 +4,8 @@ version = "1.0.0"
 edition = "2021"
 rust-version = "1.75"
 license = "MIT"
+description = "Independent scanner-neutral security benchmark and scorer for Rust"
+readme = "README.md"
 publish = false
 
 [dependencies]

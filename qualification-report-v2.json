@@ -2,7 +2,7 @@
   "schema_version": "rig-benchmark-rust-report/v2",
   "suite_id": "rig-benchmark-rust-v1",
   "suite_state": "QUALIFICATION",
-  "truth_digest": "sha256:2ffa3b7a97e6c975fb09926723e0890392009ffe2d9f156d855bfac14e6aebf6",
+  "truth_digest": "sha256:a58a5ee20b3a959e6e90bce17d7b78eeb56f90e12c68f971e33683715c2c604b",
   "required_categories": 43,
   "required_controls": 172,
   "built_controls": 172,
@@ -25,20 +25,20 @@
   "coverage_verdict": "CANNOT_CERTIFY",
   "layers": {
     "language_corpus": "COMPLETE",
-    "framework_product": "INCOMPLETE",
+    "framework_product": "COMPLETE",
     "hostile_repository": "COMPLETE",
     "held_out_applications": "NOT_RUN"
   },
   "score": {
-    "status": "INCOMPLETE",
+    "status": "COMPLETE",
     "tp": 43,
     "fp": 0,
     "fn": 0,
     "tn": 43,
-    "unknown_controls_passed": 42,
+    "unknown_controls_passed": 43,
     "unsupported_controls_passed": 43,
     "evidence_grade_mismatches": 0,
-    "unresolved": 1,
+    "unresolved": 0,
     "unexpected_observations": 0,
     "passed": false
   },
@@ -161,15 +161,15 @@
       "required_evidence_grade": "RUNTIME_EFFECT",
       "vulnerable": "FINDING",
       "safe": "CLEAN",
-      "unknown": "NOT_RUN",
+      "unknown": "UNKNOWN",
       "unsupported": "UNSUPPORTED",
       "tp": 1,
       "fp": 0,
       "fn": 0,
       "tn": 1,
       "evidence_grade_mismatches": 0,
-      "unresolved": 1,
-      "passed": false
+      "unresolved": 0,
+      "passed": true
     },
     {
       "category": "CWE-284",
@@ -737,7 +737,6 @@
     "coverage_not_complete",
     "held_out_application_evidence_missing",
     "ordinary_product_path_not_qualified",
-    "qualification_obligations_unresolved",
     "qualification_score_incomplete"
   ],
   "cases": [
@@ -880,5 +879,5 @@
       "observed": "unsupported_reason:true"
     }
   ],
-  "report_digest": "sha256:5ece6f4a28ba0bbf49c8e57890153ea420d30cfe3ef5a00d34b37cd30d42f8ab"
+  "report_digest": "sha256:f3d5035ba9df53aa80569a1837d64ed5b930d59ac70d2f8db89c1674f130573d"
 }

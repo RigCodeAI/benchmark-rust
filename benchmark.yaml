@@ -1,0 +1,16 @@
+schema_version: security-benchmark-metadata/v1
+name: BenchmarkRust
+suite_id: rig-benchmark-rust-v1
+maintainer: ZeroSurface
+license: MIT
+default_application: axum
+applications:
+  - id: axum
+    command: ./runBenchmark.sh
+    url: http://127.0.0.1:3000
+public_scoring:
+  controls: [vulnerable, safe]
+  formats: [json, sarif-2.1.0, csv]
+qualification:
+  controls: [vulnerable, safe, unknown, unsupported]
+  evidence_schema: schemas/qualification-evidence-v1.schema.json

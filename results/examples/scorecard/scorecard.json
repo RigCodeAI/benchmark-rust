@@ -1,0 +1,457 @@
+{
+  "schema_version": "security-benchmark-public-scorecard/v1",
+  "benchmark_id": "rig-benchmark-rust-v1",
+  "scoring_scope": "VULNERABLE_AND_SAFE_CONTROLS",
+  "assurance_note": "UNKNOWN, UNSUPPORTED, evidence grades, closed coverage, and promotion are scored only by the qualification interface.",
+  "tool": {
+    "name": "ExampleSAST",
+    "version": "1.0.0",
+    "kind": "SARIF"
+  },
+  "summary": {
+    "tp": 3,
+    "fp": 0,
+    "fn": 40,
+    "tn": 43,
+    "tpr": 0.06976744186046512,
+    "fpr": 0.0,
+    "balanced_accuracy": 0.5348837209302325,
+    "input_findings": 3,
+    "matched_findings": 3,
+    "duplicate_findings": 0,
+    "unscored_assurance_findings": 0,
+    "unmapped_findings": 0
+  },
+  "categories": [
+    {
+      "category": "CWE-113",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-116",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-119",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-125",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-1336",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-200",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-201",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-22",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-284",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-287",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-306",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-328",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-330",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-352",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-362",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-400",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-416",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-501",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-502",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-532",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-601",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-611",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-614",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-639",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-643",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-776",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-78",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-787",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-79",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-840",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-841",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-862",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-863",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-89",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "CWE-90",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-918",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-94",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "CWE-943",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "RUST-BUILD-RS-EXECUTION",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "RUST-FFI-BOUNDARY",
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 1,
+      "tpr": 1.0,
+      "fpr": 0.0,
+      "passed": true
+    },
+    {
+      "category": "RUST-PANIC-DOS",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "RUST-PROC-MACRO-EXECUTION",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    },
+    {
+      "category": "RUST-UNSAFE-BLOCK",
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 1,
+      "tpr": 0.0,
+      "fpr": 0.0,
+      "passed": false
+    }
+  ]
+}

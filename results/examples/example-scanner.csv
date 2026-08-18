@@ -1,0 +1,4 @@
+category,case_id,route,path,line,rule_id
+CWE-89,,/sql/raw,,,EXAMPLE.SQL
+CWE-79,,/html/active,,,EXAMPLE.XSS
+RUST-FFI-BOUNDARY,,/rust-specific/ffi/vulnerable,,,EXAMPLE.FFI

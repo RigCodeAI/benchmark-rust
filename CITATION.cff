@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: BenchmarkRust
+message: "If you use BenchmarkRust in published research, cite the exact release and commit."
+type: software
+authors:
+  - name: ZeroSurface
+version: 1.0.0
+date-released: 2026-08-17
+license: MIT

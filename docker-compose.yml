@@ -1,0 +1,9 @@
+services:
+  benchmark:
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    read_only: true
+    tmpfs:
+      - /home/benchmark

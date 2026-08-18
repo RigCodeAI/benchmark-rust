@@ -5,6 +5,8 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use sha2::{Digest as _, Sha256};
 
+mod public;
+
 const MAX_INPUT_BYTES: u64 = 64 * 1024 * 1024;
 
 #[derive(Deserialize)]
@@ -123,7 +125,16 @@ struct Arguments {
 }
 
 fn main() {
-    match run() {
+    let arguments = std::env::args().skip(1).collect::<Vec<_>>();
+    if let Some(result) = public::command(&arguments, "benchmark-rust", "truth-v1.json") {
+        finish(result);
+        return;
+    }
+    finish(run(&arguments));
+}
+
+fn finish(result: Result<bool, String>) {
+    match result {
         Ok(true) => {}
         Ok(false) => std::process::exit(30),
         Err(error) => {
@@ -133,8 +144,8 @@ fn main() {
     }
 }
 
-fn run() -> Result<bool, String> {
-    let arguments = parse_arguments()?;
+fn run(values: &[String]) -> Result<bool, String> {
+    let arguments = parse_arguments(values)?;
     let truth: Truth = read_json(&arguments.truth)?;
     validate_truth(&truth, &arguments.truth)?;
     let evidence = read_evidence(&arguments.evidence, &truth, "LOCKED")?;
@@ -160,9 +171,9 @@ fn run() -> Result<bool, String> {
     Ok(!arguments.require_promotion || report.promotion_eligible)
 }
 
-fn parse_arguments() -> Result<Arguments, String> {
-    let mut values = std::env::args().skip(1);
-    if values.next().as_deref() != Some("score") {
+fn parse_arguments(arguments: &[String]) -> Result<Arguments, String> {
+    let mut values = arguments.iter();
+    if values.next().map(String::as_str) != Some("score") {
         return Err("usage: benchmark-rust score --evidence PATH [--truth PATH] [--held-out PATH] [--output PATH] [--require-promotion]".to_owned());
     }
     let mut truth = PathBuf::from("truth-v1.json");

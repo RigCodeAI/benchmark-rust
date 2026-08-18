@@ -461,7 +461,9 @@ async fn main() {
         .execute(&database)
         .await
         .expect("initialize benchmark database");
-    let listener = tokio::net::TcpListener::bind("127.0.0.1:3000")
+    let bind_address = std::env::var("BENCHMARK_BIND")
+        .unwrap_or_else(|_| "127.0.0.1:3000".to_owned());
+    let listener = tokio::net::TcpListener::bind(&bind_address)
         .await
         .expect("bind benchmark listener");
     axum::serve(

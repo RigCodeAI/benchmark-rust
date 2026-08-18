@@ -1,20 +1,40 @@
-# Scanner contract
+# Scanner contracts
 
-BenchmarkRust is scanner-neutral. A scanner adapter must produce a JSON document
-conforming to `product-evidence-v1.schema.json`; the benchmark-owned scorer is the
-only component permitted to compare those observations with `truth-v1.json`.
+BenchmarkRust has two deliberately separate contracts.
 
-The adapter must bind observations to the exact repository, runtime, framework,
-publication, coverage, transcript, and authenticated-readback coordinates in the
-evidence envelope. It must not read the truth file while scanning. Missing cases
-remain missing and are scored as false negatives or unresolved controls.
+## Public accuracy contract
 
-```console
-cargo run --release -- score \
-  --truth truth-v1.json \
-  --evidence /immutable/scanner-evidence.json \
-  --output /immutable/score.json
+Any scanner may submit SARIF 2.1.0, CSV, or JSON conforming to
+`schemas/scanner-results-v1.schema.json`. Findings identify a standard CWE or
+Rust-specific security category and at least one public case identity: route,
+case-bearing repository location, or stable case ID. No Rig
+publication, transcript, compiler inventory, runtime coordinate, or evidence grade
+is required.
+
+```bash
+./scoreBenchmark.sh --results results/my-tool.sarif --output-dir results/my-tool
 ```
 
-`--held-out` may be repeated. `--require-promotion` exits 30 until the score,
-closed-envelope, and independent held-out gates all pass.
+Absence on a vulnerable case is an FN. A finding on a safe case is an FP.
+Unmapped findings are FP, while duplicate reports do not improve the score.
+
+## High-assurance qualification contract
+
+Products claiming runtime/compiler evidence and complete coverage may additionally
+emit `schemas/qualification-evidence-v1.schema.json`. It binds observations to the
+exact repository, compiler, framework, publication, coverage, transcript, and
+authenticated-readback coordinates.
+
+```bash
+cargo run --release --locked -- score \
+  --truth truth-v1.json \
+  --evidence /immutable/scanner-evidence.json \
+  --output /immutable/qualification.json
+```
+
+`--held-out` may be repeated. `--require-promotion` exits 30 until every authority
+gate passes.
+
+The scanner must never read benchmark truth during analysis. Product adapters may
+read the public catalog, but the benchmark-owned scorer alone compares observations
+with truth.

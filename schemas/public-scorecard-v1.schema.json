@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zerosurface.com/schemas/security-benchmark-public-scorecard-v1.json",
+  "title": "Public security benchmark scorecard",
+  "type": "object",
+  "required": ["schema_version", "benchmark_id", "scoring_scope", "tool", "summary", "categories"],
+  "properties": {
+    "schema_version": {"const": "security-benchmark-public-scorecard/v1"},
+    "benchmark_id": {"type": "string"},
+    "scoring_scope": {"const": "VULNERABLE_AND_SAFE_CONTROLS"},
+    "assurance_note": {"type": "string"},
+    "tool": {"type": "object"},
+    "summary": {
+      "type": "object",
+      "required": ["tp", "fp", "fn", "tn", "tpr", "fpr", "balanced_accuracy"]
+    },
+    "categories": {"type": "array", "items": {"type": "object"}}
+  }
+}

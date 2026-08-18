@@ -60,7 +60,7 @@
     "apps/axum-product/Cargo.lock": "sha256:436320a59371ca40fd49d64730790b74317a5fc95e25356adca6cf1f3a7119fc",
     "apps/axum-product/.rig.json": "sha256:1e99d5e6217ac9335f29c3ea0ecc06f24c456844dda99f59f1e71e2ee439e6ae",
     "apps/axum-product/Cargo.toml": "sha256:6b75a813e532d263ca98eddd486af77b108ac5f7abe245601cc45ef3c1248e45",
-    "apps/axum-product/src/main.rs": "sha256:96504c86550c3198e352063b4cfe9aa90128e2fad613894c35c7bf6938a82c46",
+    "apps/axum-product/src/main.rs": "sha256:4cf2018dae3fc43f0d21f4c5170e498c90dcf3f0bb373a468efc8e454bf305fc",
     "apps/axum-product/src/controller/mod.rs": "sha256:80824990c5c8a29532596276260813a9cc43ea74788068972ad1d1fd400b19e4",
     "apps/axum-product/src/controller/access.rs": "sha256:6bc149d9fc93cd9126147848021354f28be77422bacae3568f586d26e0896f96",
     "apps/axum-product/src/controller/workflow.rs": "sha256:52f1cbcb6cb5d9a1733cba6c544cd6035673563d05f9ee6418311121a045be77",

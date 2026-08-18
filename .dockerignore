@@ -1,0 +1,6 @@
+.git
+target
+results/*
+!results/README.md
+!results/examples
+**/target

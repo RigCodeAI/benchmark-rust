@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zerosurface.com/schemas/security-benchmark-scanner-results-v1.json",
+  "title": "Scanner-neutral security benchmark results",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "tool", "findings"],
+  "properties": {
+    "schema_version": {"const": "security-benchmark-scanner-results/v1"},
+    "benchmark_id": {"type": "string", "minLength": 1},
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["SAST", "DAST", "IAST", "HYBRID", "OTHER"]},
+        "information_uri": {"type": "string", "format": "uri"}
+      }
+    },
+    "findings": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {"$ref": "#/$defs/finding"}
+    }
+  },
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["category"],
+      "properties": {
+        "category": {
+          "type": "string",
+          "pattern": "^(CWE-[0-9]+|[A-Z][A-Z0-9._-]+)$"
+        },
+        "case_id": {"type": "string", "minLength": 1},
+        "route": {"type": "string", "minLength": 1},
+        "rule_id": {"type": "string", "minLength": 1},
+        "message": {"type": "string"},
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path"],
+          "properties": {
+            "path": {"type": "string", "minLength": 1},
+            "line": {"type": "integer", "minimum": 1},
+            "column": {"type": "integer", "minimum": 1}
+          }
+        }
+      },
+      "anyOf": [
+        {"required": ["case_id"]},
+        {"required": ["route"]},
+        {"required": ["location"]}
+      ]
+    }
+  }
+}
