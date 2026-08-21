@@ -2,7 +2,7 @@
 
 Status: implemented qualification slice, 2026-08-15
 
-Rust targets use Rig's language-neutral controller for policy and protocol
+Rust targets use Sivere's language-neutral controller for policy and protocol
 categories. The Rust adapter supplies exact Axum route discovery, launch, session
 traffic, request timing, and authenticated publication; the controller owns the
 security decision. No Rust source-to-sink finding is substituted for a policy
@@ -15,27 +15,27 @@ safe, unknown, and unsupported controls for these ten categories:
 
 | Category | Published rule | Authoritative evidence |
 | --- | --- | --- |
-| CWE-284 improper access control | `RIG.ACCESS_CONTROL.IMPROPER` | Authorized identity succeeds; identity that policy says must be denied receives an equivalent protected result. |
-| CWE-287 improper authentication | `RIG.AUTHENTICATION.IMPROPER` | Valid session succeeds; explicitly invalid credential is accepted for the same operation. |
-| CWE-306 missing authentication | `RIG.AUTHENTICATION.MISSING` | Authenticated session succeeds; isolated anonymous session receives the same protected result. |
-| CWE-352 CSRF | `RIG.CSRF.MISSING_OR_INVALID` | Valid session and acquired token succeed; the isolated session succeeds after Rig omits the token. |
-| CWE-639 tenant isolation | `RIG.AUTHORIZATION.CROSS_TENANT` | Owning tenant succeeds; a separately authenticated foreign tenant receives the same resource. |
-| CWE-862 missing authorization | `RIG.AUTHORIZATION.MISSING` | Authorized control succeeds; the declared unauthorized identity succeeds. |
-| CWE-863 incorrect authorization | `RIG.AUTHORIZATION.INCORRECT` | Required role succeeds; an insufficient role receives the protected operation. |
-| CWE-840 business-limit bypass | `RIG.BUSINESS_LOGIC.LIMIT_BYPASS` | Valid lane succeeds; the declared over-limit lane succeeds with the required terminal equivalence. |
-| CWE-362 race condition | `RIG.CONCURRENCY.RACE_CONDITION` | Prepared requests are released together, successes exceed the declared limit, and a postcondition oracle independently reports violation. |
-| CWE-841 multi-service workflow | `RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION` | A positive-control downstream call reaches a capability-authenticated witness; the forbidden subject correlation reaches that same method and path. |
+| CWE-284 improper access control | `SIVERE.ACCESS_CONTROL.IMPROPER` | Authorized identity succeeds; identity that policy says must be denied receives an equivalent protected result. |
+| CWE-287 improper authentication | `SIVERE.AUTHENTICATION.IMPROPER` | Valid session succeeds; explicitly invalid credential is accepted for the same operation. |
+| CWE-306 missing authentication | `SIVERE.AUTHENTICATION.MISSING` | Authenticated session succeeds; isolated anonymous session receives the same protected result. |
+| CWE-352 CSRF | `SIVERE.CSRF.MISSING_OR_INVALID` | Valid session and acquired token succeed; the isolated session succeeds after Sivere omits the token. |
+| CWE-639 tenant isolation | `SIVERE.AUTHORIZATION.CROSS_TENANT` | Owning tenant succeeds; a separately authenticated foreign tenant receives the same resource. |
+| CWE-862 missing authorization | `SIVERE.AUTHORIZATION.MISSING` | Authorized control succeeds; the declared unauthorized identity succeeds. |
+| CWE-863 incorrect authorization | `SIVERE.AUTHORIZATION.INCORRECT` | Required role succeeds; an insufficient role receives the protected operation. |
+| CWE-840 business-limit bypass | `SIVERE.BUSINESS_LOGIC.LIMIT_BYPASS` | Valid lane succeeds; the declared over-limit lane succeeds with the required terminal equivalence. |
+| CWE-362 race condition | `SIVERE.CONCURRENCY.RACE_CONDITION` | Prepared requests are released together, successes exceed the declared limit, and a postcondition oracle independently reports violation. |
+| CWE-841 multi-service workflow | `SIVERE.MULTI_SERVICE.FORBIDDEN_INTERACTION` | A positive-control downstream call reaches a capability-authenticated witness; the forbidden subject correlation reaches that same method and path. |
 
 The engine also retains the existing CWE-639 direct-object rule
-`RIG.AUTHORIZATION.BROKEN_OBJECT_LEVEL` as a distinct product claim. The locked
+`SIVERE.AUTHORIZATION.BROKEN_OBJECT_LEVEL` as a distinct product claim. The locked
 BenchmarkRust CWE-639 row qualifies tenant-boundary enforcement; it does not use
 that separate IDOR claim to earn the same score twice.
 
 ## Configuration and execution
 
-The ordinary `rig run` path loads `.rig.json` once and constructs controller
+The ordinary `sivere run` path loads `.sivere.json` once and constructs controller
 journeys after framework discovery. Every selector must resolve to an
-authoritative discovered route. Rig then:
+authoritative discovered route. Sivere then:
 
 1. creates isolated identity sessions using declared login policies;
 2. acquires and injects CSRF tokens for positive controls, or deliberately omits
@@ -79,7 +79,7 @@ capability gaps.
 
 ## Evidence and artifacts
 
-`rig run` publishes:
+`sivere run` publishes:
 
 - `authorization-report.json` with exact kind, weakness, test, resource,
   identities, statuses, body equivalence, decision, and obligation;
@@ -97,7 +97,7 @@ policy.
 
 ## Boundaries
 
-Rig does not infer arbitrary roles, object ownership, tenant membership,
+Sivere does not infer arbitrary roles, object ownership, tenant membership,
 business limits, valid workflow order, or forbidden downstream effects from
 source code. Those are application policy and must be declared or supplied by a
 future independently qualified policy-discovery component. HTTP is the qualified
@@ -106,6 +106,6 @@ service-mesh, cache, and cloud-provider effects remain unsupported until they
 have protocol-specific authenticated witnesses.
 
 The executable reference is
-`benchmarks/benchmark-rust-v1/apps/axum-product/.rig.json`. The cross-language
+`benchmarks/benchmark-rust-v1/apps/axum-product/.sivere.json`. The cross-language
 controller specification is
 [`Workflow, concurrency, and multi-service security`](workflow-concurrency-multiservice-security.md).

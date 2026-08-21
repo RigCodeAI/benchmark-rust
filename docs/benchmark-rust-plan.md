@@ -3,7 +3,7 @@
 Status: executable qualification benchmark, product promotion pending, version 1,
 2026-08-15
 
-BenchmarkRust is the promotion benchmark for Rust application support in Rig. It
+BenchmarkRust is the promotion benchmark for Rust application support in Sivere. It
 is not a Rust translation of Python syntax fixtures. It preserves the security
 question, evidence grade, negative control, and coverage obligation of the Python
 ledger while using idiomatic Rust applications and real Rust providers.
@@ -21,7 +21,7 @@ coordinates tracked as qualification evidence:
   pack.
 
 A passing result means an arbitrary repository in this family can use ordinary
-`rig run`, not a benchmark-only scanner. Rig must provision an immutable build,
+`sivere run`, not a benchmark-only scanner. Sivere must provision an immutable build,
 discover and exercise the application, authenticate runtime evidence, seal every
 capture, publish the final result, and close the declared denominator.
 
@@ -33,7 +33,7 @@ BenchmarkRust has four independently reported layers:
    source, transformation, sink, and safe usage. Every category has vulnerable,
    safe, unknown, and unsupported controls.
 2. **Framework product application.** One ordinary multi-route Axum repository is
-   run with `rig run`. It covers routing, extractors, middleware, state, async
+   run with `sivere run`. It covers routing, extractors, middleware, state, async
    propagation, response construction, and the first real provider coordinates.
    Compiler-shape routes require runtime findings through aliases, stored/client
    builders, generics, traits, declarative-macro helper expansion, literal
@@ -49,7 +49,7 @@ BenchmarkRust has four independently reported layers:
 The checked-in suite under `benchmarks/benchmark-rust-v1` implements all 172
 language controls, the framework foundation, hostile controls, deterministic
 replay, resource budgets, and the native product-evidence scorer. The full Make
-target now invokes the framework application through ordinary `rig run`, verifies
+target now invokes the framework application through ordinary `sivere run`, verifies
 its signed publication, and conservatively projects the retained product score.
 A retained scorecard cannot promote Rust until the product and held-out layers
 close all 172 controls at the required evidence grades.
@@ -65,7 +65,7 @@ policy is required. The truth manifest classifies each one as:
 
 - `DIRECT`: the same security statement applies directly in Rust;
 - `ADAPTED`: the statement applies through Rust-specific APIs or ownership;
-- `CONTROLLER`: Rig's language-neutral journey engine owns the decision, but the
+- `CONTROLLER`: Sivere's language-neutral journey engine owns the decision, but the
   Rust target must still supply complete routes, sessions, state, and evidence;
 - `NOT_APPLICABLE`: allowed only with a reviewed proof explaining why the entire
   exact coordinate cannot express the behavior. An absent model is never
@@ -131,7 +131,7 @@ result requires the exact stable
 campaign coverage and no matching route finding. An unknown case requires an
 explicit discovery capability reason. Publication and developer artifact
 signatures are verified before any observation is scored. The
-unqualified-coordinate repository is also executed through ordinary `rig run`;
+unqualified-coordinate repository is also executed through ordinary `sivere run`;
 its exact fail-closed error is projected into the 43 unsupported controls.
 
 The current ordinary-product classification score is 43 TP / 0 FP / 0 FN /
@@ -142,7 +142,7 @@ unsupported semantic coordinates. This is an accuracy checkpoint, not Rust
 promotion: an ordinary closed product envelope and the independently held-out
 applications must still pass before `COMPLETE` and `promotion_eligible=true`.
 
-Build-script and proc-macro qualification is pre-execution evidence. Rig hashes
+Build-script and proc-macro qualification is pre-execution evidence. Sivere hashes
 resolved local executable source and blocks it, inventories the lockfile's package
 source/checksum coordinates, and retains the canonical provenance receipt. Missing
 or unsafe source is `UNKNOWN`. The benchmark never runs a hostile `build.rs` or
@@ -171,7 +171,7 @@ For each ordinary application run, qualification verifies:
 - `FINAL`, `COMPLETE`, zero failed required requests, zero unexpected facts, and
   zero unresolved obligations.
 
-The benchmark runner may orchestrate repeated ordinary `rig run` commands. It may
+The benchmark runner may orchestrate repeated ordinary `sivere run` commands. It may
 not call private discovery or instrumentation functions to obtain a better score.
 
 ## Scoring and promotion
@@ -188,7 +188,7 @@ Rust promotion requires:
 - every positive at the required evidence grade;
 - all hostile-build and resource-budget controls passing;
 - deterministic replay and identical semantic score on both initial hosts;
-- ordinary `rig run`, sealed transcripts, authenticated readback, `FINAL`, and
+- ordinary `sivere run`, sealed transcripts, authenticated readback, `FINAL`, and
   `COMPLETE`;
 - no Python, Node, or Go prerequisite for the controller or benchmark scorer.
 

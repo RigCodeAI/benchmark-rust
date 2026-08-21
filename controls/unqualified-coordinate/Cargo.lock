@@ -272,7 +272,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rig-benchmark-rust-unqualified-coordinate"
+name = "sivere-benchmark-rust-unqualified-coordinate"
 version = "0.1.0"
 dependencies = [
  "axum",

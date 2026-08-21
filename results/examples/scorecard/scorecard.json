@@ -1,6 +1,6 @@
 {
   "schema_version": "security-benchmark-public-scorecard/v1",
-  "benchmark_id": "rig-benchmark-rust-v1",
+  "benchmark_id": "sivere-benchmark-rust-v1",
   "scoring_scope": "VULNERABLE_AND_SAFE_CONTROLS",
   "assurance_note": "UNKNOWN, UNSUPPORTED, evidence grades, closed coverage, and promotion are scored only by the qualification interface.",
   "tool": {

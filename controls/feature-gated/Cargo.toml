@@ -1,5 +1,5 @@
 [package]
-name = "rig-benchmark-rust-feature-gated-control"
+name = "sivere-benchmark-rust-feature-gated-control"
 version = "0.1.0"
 edition = "2021"
 publish = false

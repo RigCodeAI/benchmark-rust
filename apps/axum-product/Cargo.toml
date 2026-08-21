@@ -1,5 +1,5 @@
 [package]
-name = "rig-benchmark-rust-axum"
+name = "sivere-benchmark-rust-axum"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.97.1"

@@ -272,7 +272,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rig-benchmark-rust-build-provenance-unknown"
+name = "sivere-benchmark-rust-build-provenance-unknown"
 version = "0.1.0"
 dependencies = [
  "axum",

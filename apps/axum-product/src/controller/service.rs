@@ -25,21 +25,21 @@ async fn service_vulnerable(headers: HeaderMap) -> StatusCode {
 
 async fn call_witness(headers: &HeaderMap) -> StatusCode {
     let Some(correlation) = headers
-        .get("x-rig-protocol-correlation")
+        .get("x-sivere-protocol-correlation")
         .and_then(|value| value.to_str().ok())
     else {
         return StatusCode::OK;
     };
-    let Ok(origin) = std::env::var("RIG_BILLING_ORIGIN") else {
+    let Ok(origin) = std::env::var("SIVERE_BILLING_ORIGIN") else {
         return StatusCode::SERVICE_UNAVAILABLE;
     };
-    let Ok(capability) = std::env::var("RIG_BILLING_CAPABILITY") else {
+    let Ok(capability) = std::env::var("SIVERE_BILLING_CAPABILITY") else {
         return StatusCode::SERVICE_UNAVAILABLE;
     };
     match reqwest::Client::new()
         .post(format!("{origin}/charge"))
-        .header("X-Rig-Witness-Capability", capability)
-        .header("X-Rig-Protocol-Correlation", correlation)
+        .header("X-Sivere-Witness-Capability", capability)
+        .header("X-Sivere-Protocol-Correlation", correlation)
         .send()
         .await
     {

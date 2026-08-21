@@ -35,7 +35,7 @@ pub fn structure_bound() -> ProbeResult {
 }
 
 pub fn context_active() -> ProbeResult {
-    let input = "<script>globalThis.rig=1</script>";
+    let input = "<script>globalThis.sivere=1</script>";
     let body = format!("<main>{input}</main>");
     if body.contains("<script>") {
         finding("request bytes remained active in the output context")
@@ -45,7 +45,7 @@ pub fn context_active() -> ProbeResult {
 }
 
 pub fn context_encoded() -> ProbeResult {
-    let input = "<script>globalThis.rig=1</script>";
+    let input = "<script>globalThis.sivere=1</script>";
     let body = input.replace('<', "&lt;").replace('>', "&gt;");
     if body.contains("<script>") {
         finding("encoded bytes remained active")
@@ -117,7 +117,7 @@ pub fn policy_enforced() -> ProbeResult {
 }
 
 pub fn secret_exposed() -> ProbeResult {
-    let secret = "token_rig_secret";
+    let secret = "token_sivere_secret";
     let response = format!("debug={secret}");
     if response.contains(secret) {
         finding("a classified secret crossed a public boundary")
@@ -128,7 +128,7 @@ pub fn secret_exposed() -> ProbeResult {
 
 pub fn secret_redacted() -> ProbeResult {
     let response = "debug=[REDACTED]";
-    if response.contains("token_rig_secret") {
+    if response.contains("token_sivere_secret") {
         finding("redaction failed")
     } else {
         clean("classified data was redacted before the boundary")

@@ -3,7 +3,7 @@
 Status: qualified tranche, Rust product promotion pending, version 1, 2026-08-15
 
 This document records the Python-equivalent sink and semantic categories that
-Rig's exact Rust/Axum family supports through the ordinary `rig run` product
+Sivere's exact Rust/Axum family supports through the ordinary `sivere run` product
 path. It is a capability boundary, not a claim that Rust support is fully
 qualified.
 
@@ -11,7 +11,7 @@ The tranche adds 19 categories to the five existing SQL, process, filesystem,
 HTML, and outbound HTTP slices. BenchmarkRust now retains 24 authoritative
 positives and 24 authoritative safe controls. Nine additional Rust-specific
 categories are documented separately; ten controller-owned categories remain
-incomplete, so Rig correctly publishes `CANNOT_CERTIFY` and Rust remains in
+incomplete, so Sivere correctly publishes `CANNOT_CERTIFY` and Rust remains in
 `QUALIFICATION`.
 
 ## Exact family

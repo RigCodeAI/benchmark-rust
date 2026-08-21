@@ -1,6 +1,6 @@
 {
   "schema_version": "security-benchmark-case-catalog/v1",
-  "benchmark_id": "rig-benchmark-rust-v1",
+  "benchmark_id": "sivere-benchmark-rust-v1",
   "accuracy_controls": [
     "vulnerable",
     "safe"
@@ -469,7 +469,7 @@
       "route": null,
       "source_location": "cwe-284-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.ACCESS_CONTROL.IMPROPER",
+      "rule_id": "SIVERE.ACCESS_CONTROL.IMPROPER",
       "reason_code": null
     },
     {
@@ -525,7 +525,7 @@
       "route": null,
       "source_location": "cwe-287-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.AUTHENTICATION.IMPROPER",
+      "rule_id": "SIVERE.AUTHENTICATION.IMPROPER",
       "reason_code": null
     },
     {
@@ -581,7 +581,7 @@
       "route": null,
       "source_location": "cwe-306-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.AUTHENTICATION.MISSING",
+      "rule_id": "SIVERE.AUTHENTICATION.MISSING",
       "reason_code": null
     },
     {
@@ -749,7 +749,7 @@
       "route": null,
       "source_location": "cwe-352-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.CSRF.MISSING_OR_INVALID",
+      "rule_id": "SIVERE.CSRF.MISSING_OR_INVALID",
       "reason_code": null
     },
     {
@@ -805,7 +805,7 @@
       "route": null,
       "source_location": "cwe-362-vulnerable",
       "sink_location": "WORKFLOW_SECURITY",
-      "rule_id": "RIG.CONCURRENCY.RACE_CONDITION",
+      "rule_id": "SIVERE.CONCURRENCY.RACE_CONDITION",
       "reason_code": null
     },
     {
@@ -1309,7 +1309,7 @@
       "route": null,
       "source_location": "cwe-639-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.AUTHORIZATION.CROSS_TENANT",
+      "rule_id": "SIVERE.AUTHORIZATION.CROSS_TENANT",
       "reason_code": null
     },
     {
@@ -1645,7 +1645,7 @@
       "route": null,
       "source_location": "cwe-840-vulnerable",
       "sink_location": "WORKFLOW_SECURITY",
-      "rule_id": "RIG.BUSINESS_LOGIC.LIMIT_BYPASS",
+      "rule_id": "SIVERE.BUSINESS_LOGIC.LIMIT_BYPASS",
       "reason_code": null
     },
     {
@@ -1701,7 +1701,7 @@
       "route": null,
       "source_location": "cwe-841-vulnerable",
       "sink_location": "WORKFLOW_SECURITY",
-      "rule_id": "RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION",
+      "rule_id": "SIVERE.MULTI_SERVICE.FORBIDDEN_INTERACTION",
       "reason_code": null
     },
     {
@@ -1757,7 +1757,7 @@
       "route": null,
       "source_location": "cwe-862-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.AUTHORIZATION.MISSING",
+      "rule_id": "SIVERE.AUTHORIZATION.MISSING",
       "reason_code": null
     },
     {
@@ -1813,7 +1813,7 @@
       "route": null,
       "source_location": "cwe-863-vulnerable",
       "sink_location": "ACCESS_CONTROL",
-      "rule_id": "RIG.AUTHORIZATION.INCORRECT",
+      "rule_id": "SIVERE.AUTHORIZATION.INCORRECT",
       "reason_code": null
     },
     {

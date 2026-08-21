@@ -1546,7 +1546,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "rig-benchmark-rust-axum"
+name = "sivere-benchmark-rust-axum"
 version = "0.1.0"
 dependencies = [
  "axum",
