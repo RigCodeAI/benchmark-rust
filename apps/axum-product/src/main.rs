@@ -52,7 +52,7 @@ struct AuthenticatedPrincipal {
 async fn middleware_source(mut request: Request, next: Next) -> Response {
     let value = request
         .headers()
-        .get("x-rig-middleware")
+        .get("x-sivere-middleware")
         .and_then(|value| value.to_str().ok())
         .unwrap_or_default()
         .to_owned();
@@ -63,7 +63,7 @@ async fn middleware_source(mut request: Request, next: Next) -> Response {
 async fn extension_source(mut request: Request, next: Next) -> Response {
     let value = request
         .headers()
-        .get("x-rig-extension")
+        .get("x-sivere-extension")
         .and_then(|value| value.to_str().ok())
         .unwrap_or_default()
         .to_owned();
@@ -110,7 +110,7 @@ async fn source_json(Json(input): Json<TextInput>) -> &'static str {
 
 async fn source_header(headers: HeaderMap) -> &'static str {
     let value = headers
-        .get("x-rig-source")
+        .get("x-sivere-source")
         .and_then(|value| value.to_str().ok())
         .unwrap_or_default();
     observe_source(value);
@@ -119,7 +119,7 @@ async fn source_header(headers: HeaderMap) -> &'static str {
 
 async fn source_cookie(jar: CookieJar) -> &'static str {
     let value = jar
-        .get("rig_source")
+        .get("sivere_source")
         .map(|cookie| cookie.value())
         .unwrap_or_default();
     observe_source(value);
@@ -222,12 +222,12 @@ async fn file_from_path(Path(value): Path<String>) -> &'static str {
     // The disposable benchmark workspace is the effect boundary: a successful
     // write proves that the request-controlled path was acted upon without
     // touching developer files or external state.
-    let _ = std::fs::write(value, b"rig-owned-path-effect");
+    let _ = std::fs::write(value, b"sivere-owned-path-effect");
     "ok"
 }
 
 async fn file_constant(Query(_input): Query<TextInput>) -> &'static str {
-    let _ = std::fs::read_to_string("/tmp/rig-benchmark-rust-safe-file");
+    let _ = std::fs::read_to_string("/tmp/sivere-benchmark-rust-safe-file");
     "ok"
 }
 
@@ -237,7 +237,7 @@ async fn outbound_dynamic(Query(input): Query<UrlInput>) -> &'static str {
 }
 
 async fn outbound_constant(Query(_input): Query<UrlInput>) -> &'static str {
-    let _ = reqwest::get("http://127.0.0.1:9/rig-safe-control").await;
+    let _ = reqwest::get("http://127.0.0.1:9/sivere-safe-control").await;
     "ok"
 }
 
@@ -445,7 +445,7 @@ fn application(state: ApplicationState) -> Router {
 
 #[tokio::main]
 async fn main() {
-    std::fs::write("rig-xxe-canary.txt", "RIG_XXE_EFFECT")
+    std::fs::write("sivere-xxe-canary.txt", "SIVERE_XXE_EFFECT")
         .expect("create scanner-owned XML effect canary");
     // The vulnerable XML controls intentionally reproduce the unsafe native
     // parser policy. The safe controls use a parser that never resolves DTDs.

@@ -1,6 +1,6 @@
 # Results
 
-`examples/` contains synthetic non-Rig submissions that demonstrate JSON, SARIF,
+`examples/` contains synthetic non-Sivere submissions that demonstrate JSON, SARIF,
 CSV, and scorecard generation. They are interface fixtures, not product claims.
 
 Reproducible third-party submissions should use:

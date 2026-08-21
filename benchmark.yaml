@@ -1,6 +1,6 @@
 schema_version: security-benchmark-metadata/v1
 name: BenchmarkRust
-suite_id: rig-benchmark-rust-v1
+suite_id: sivere-benchmark-rust-v1
 maintainer: ZeroSurface
 license: MIT
 default_application: axum

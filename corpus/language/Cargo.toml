@@ -1,5 +1,5 @@
 [package]
-name = "rig-benchmark-rust-language-corpus"
+name = "sivere-benchmark-rust-language-corpus"
 version = "0.1.0"
 edition = "2021"
 rust-version = "1.97.1"
@@ -9,7 +9,7 @@ publish = false
 path = "src/lib.rs"
 
 [[bin]]
-name = "rig-benchmark-rust-language-corpus"
+name = "sivere-benchmark-rust-language-corpus"
 path = "src/main.rs"
 
 [workspace]

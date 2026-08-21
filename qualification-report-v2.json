@@ -1,6 +1,6 @@
 {
-  "schema_version": "rig-benchmark-rust-report/v2",
-  "suite_id": "rig-benchmark-rust-v1",
+  "schema_version": "sivere-benchmark-rust-report/v2",
+  "suite_id": "sivere-benchmark-rust-v1",
   "suite_state": "QUALIFICATION",
   "truth_digest": "sha256:a58a5ee20b3a959e6e90bce17d7b78eeb56f90e12c68f971e33683715c2c604b",
   "required_categories": 43,

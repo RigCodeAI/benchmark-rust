@@ -1,5 +1,5 @@
 {
-  "schema_version": "rig-language-support-policy/v1",
+  "schema_version": "sivere-language-support-policy/v1",
   "promotion_order": [
     "rust",
     "javascript-typescript",

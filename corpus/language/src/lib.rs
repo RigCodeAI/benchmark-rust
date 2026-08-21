@@ -7,7 +7,7 @@ use std::collections::{BTreeMap, BTreeSet};
 pub use model::{CaseResult, CategorySpec, Control, Disposition};
 
 pub const fn compiler_coordinate() -> &'static str {
-    env!("RIG_BENCHMARK_RUSTC_COORDINATE")
+    env!("SIVERE_BENCHMARK_RUSTC_COORDINATE")
 }
 
 pub fn category_specs() -> Vec<CategorySpec> {

@@ -1,5 +1,5 @@
 [package]
-name = "rig-benchmark-rust-provider-spoof"
+name = "sivere-benchmark-rust-provider-spoof"
 version = "0.1.0"
 edition = "2021"
 publish = false

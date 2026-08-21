@@ -31,15 +31,15 @@ cwe-22-vulnerable,CWE-22,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-produc
 cwe-22-safe,CWE-22,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/files/constant,/files/constant,filesystem,,
 cwe-22-unknown,CWE-22,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,filesystem,,rust_filesystem_semantic_coordinate_unresolved
 cwe-22-unsupported,CWE-22,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-284-vulnerable,CWE-284,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-284-vulnerable,ACCESS_CONTROL,RIG.ACCESS_CONTROL.IMPROPER,
+cwe-284-vulnerable,CWE-284,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-284-vulnerable,ACCESS_CONTROL,SIVERE.ACCESS_CONTROL.IMPROPER,
 cwe-284-safe,CWE-284,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-284-safe,ACCESS_CONTROL,,
 cwe-284-unknown,CWE-284,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_access_policy_required
 cwe-284-unsupported,CWE-284,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-287-vulnerable,CWE-287,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-287-vulnerable,ACCESS_CONTROL,RIG.AUTHENTICATION.IMPROPER,
+cwe-287-vulnerable,CWE-287,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-287-vulnerable,ACCESS_CONTROL,SIVERE.AUTHENTICATION.IMPROPER,
 cwe-287-safe,CWE-287,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-287-safe,ACCESS_CONTROL,,
 cwe-287-unknown,CWE-287,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_authentication_policy_required
 cwe-287-unsupported,CWE-287,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-306-vulnerable,CWE-306,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-306-vulnerable,ACCESS_CONTROL,RIG.AUTHENTICATION.MISSING,
+cwe-306-vulnerable,CWE-306,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-306-vulnerable,ACCESS_CONTROL,SIVERE.AUTHENTICATION.MISSING,
 cwe-306-safe,CWE-306,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-306-safe,ACCESS_CONTROL,,
 cwe-306-unknown,CWE-306,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_authentication_policy_required
 cwe-306-unsupported,CWE-306,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -51,11 +51,11 @@ cwe-330-vulnerable,CWE-330,vulnerable,FINDING,true,RUNTIME_PROPERTY,apps/axum-pr
 cwe-330-safe,CWE-330,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,random_generator,,
 cwe-330-unknown,CWE-330,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,random_generator,,rust_random_generator_semantic_coordinate_unresolved
 cwe-330-unsupported,CWE-330,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-352-vulnerable,CWE-352,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-352-vulnerable,ACCESS_CONTROL,RIG.CSRF.MISSING_OR_INVALID,
+cwe-352-vulnerable,CWE-352,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-352-vulnerable,ACCESS_CONTROL,SIVERE.CSRF.MISSING_OR_INVALID,
 cwe-352-safe,CWE-352,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-352-safe,ACCESS_CONTROL,,
 cwe-352-unknown,CWE-352,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_csrf_policy_required
 cwe-352-unsupported,CWE-352,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-362-vulnerable,CWE-362,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-362-vulnerable,WORKFLOW_SECURITY,RIG.CONCURRENCY.RACE_CONDITION,
+cwe-362-vulnerable,CWE-362,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-362-vulnerable,WORKFLOW_SECURITY,SIVERE.CONCURRENCY.RACE_CONDITION,
 cwe-362-safe,CWE-362,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-362-safe,WORKFLOW_SECURITY,,
 cwe-362-unknown,CWE-362,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,WORKFLOW_SECURITY,,declared_concurrency_invariant_required
 cwe-362-unsupported,CWE-362,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -91,7 +91,7 @@ cwe-614-vulnerable,CWE-614,vulnerable,FINDING,true,RUNTIME_PROPERTY,apps/axum-pr
 cwe-614-safe,CWE-614,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,cookie_attributes,,
 cwe-614-unknown,CWE-614,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,cookie_attributes,,rust_cookie_attributes_semantic_coordinate_unresolved
 cwe-614-unsupported,CWE-614,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-639-vulnerable,CWE-639,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-639-vulnerable,ACCESS_CONTROL,RIG.AUTHORIZATION.CROSS_TENANT,
+cwe-639-vulnerable,CWE-639,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-639-vulnerable,ACCESS_CONTROL,SIVERE.AUTHORIZATION.CROSS_TENANT,
 cwe-639-safe,CWE-639,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-639-safe,ACCESS_CONTROL,,
 cwe-639-unknown,CWE-639,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_tenant_policy_required
 cwe-639-unsupported,CWE-639,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -115,19 +115,19 @@ cwe-79-vulnerable,CWE-79,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-prod
 cwe-79-safe,CWE-79,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/html/encoded,/html/encoded,http_response,,
 cwe-79-unknown,CWE-79,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/html/unresolved,/html/unresolved,http_response,,rust_axum_html_body_type_unresolved
 cwe-79-unsupported,CWE-79,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-840-vulnerable,CWE-840,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-840-vulnerable,WORKFLOW_SECURITY,RIG.BUSINESS_LOGIC.LIMIT_BYPASS,
+cwe-840-vulnerable,CWE-840,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-840-vulnerable,WORKFLOW_SECURITY,SIVERE.BUSINESS_LOGIC.LIMIT_BYPASS,
 cwe-840-safe,CWE-840,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-840-safe,WORKFLOW_SECURITY,,
 cwe-840-unknown,CWE-840,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,WORKFLOW_SECURITY,,declared_business_invariant_required
 cwe-840-unsupported,CWE-840,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-841-vulnerable,CWE-841,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-841-vulnerable,WORKFLOW_SECURITY,RIG.MULTI_SERVICE.FORBIDDEN_INTERACTION,
+cwe-841-vulnerable,CWE-841,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-841-vulnerable,WORKFLOW_SECURITY,SIVERE.MULTI_SERVICE.FORBIDDEN_INTERACTION,
 cwe-841-safe,CWE-841,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-841-safe,WORKFLOW_SECURITY,,
 cwe-841-unknown,CWE-841,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,WORKFLOW_SECURITY,,declared_multiservice_protocol_required
 cwe-841-unsupported,CWE-841,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-862-vulnerable,CWE-862,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-862-vulnerable,ACCESS_CONTROL,RIG.AUTHORIZATION.MISSING,
+cwe-862-vulnerable,CWE-862,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-862-vulnerable,ACCESS_CONTROL,SIVERE.AUTHORIZATION.MISSING,
 cwe-862-safe,CWE-862,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-862-safe,ACCESS_CONTROL,,
 cwe-862-unknown,CWE-862,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_authorization_policy_required
 cwe-862-unsupported,CWE-862,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-863-vulnerable,CWE-863,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-863-vulnerable,ACCESS_CONTROL,RIG.AUTHORIZATION.INCORRECT,
+cwe-863-vulnerable,CWE-863,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axum-product,,cwe-863-vulnerable,ACCESS_CONTROL,SIVERE.AUTHORIZATION.INCORRECT,
 cwe-863-safe,CWE-863,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-863-safe,ACCESS_CONTROL,,
 cwe-863-unknown,CWE-863,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_authorization_policy_required
 cwe-863-unsupported,CWE-863,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,

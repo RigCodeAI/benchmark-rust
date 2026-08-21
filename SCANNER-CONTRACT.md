@@ -7,7 +7,7 @@ BenchmarkRust has two deliberately separate contracts.
 Any scanner may submit SARIF 2.1.0, CSV, or JSON conforming to
 `schemas/scanner-results-v1.schema.json`. Findings identify a standard CWE or
 Rust-specific security category and at least one public case identity: route,
-case-bearing repository location, or stable case ID. No Rig
+case-bearing repository location, or stable case ID. No Sivere
 publication, transcript, compiler inventory, runtime coordinate, or evidence grade
 is required.
 

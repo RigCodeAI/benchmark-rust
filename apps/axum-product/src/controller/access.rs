@@ -43,7 +43,7 @@ async fn controller_login(Form(login): Form<Login>) -> (StatusCode, HeaderMap, &
     let mut headers = HeaderMap::new();
     headers.insert(
         header::SET_COOKIE,
-        HeaderValue::from_str(&format!("rig_session={}; Path=/; HttpOnly", login.username))
+        HeaderValue::from_str(&format!("sivere_session={}; Path=/; HttpOnly", login.username))
             .expect("fixed benchmark identity is a valid cookie"),
     );
     (StatusCode::OK, headers, "authenticated")
@@ -53,7 +53,7 @@ async fn controller_csrf_token() -> (StatusCode, HeaderMap, &'static str) {
     let mut response = HeaderMap::new();
     response.insert(
         header::SET_COOKIE,
-        HeaderValue::from_static("rig_csrf=rig-controller-token; Path=/"),
+        HeaderValue::from_static("sivere_csrf=sivere-controller-token; Path=/"),
     );
     (StatusCode::OK, response, "csrf")
 }
@@ -98,7 +98,7 @@ async fn cwe_352_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
     let token = headers
         .get("x-csrf-token")
         .and_then(|value| value.to_str().ok());
-    protected(session(&headers) == Some("alice") && token == Some("rig-controller-token"))
+    protected(session(&headers) == Some("alice") && token == Some("sivere-controller-token"))
 }
 
 async fn cwe_639_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
@@ -133,7 +133,7 @@ fn session(headers: &HeaderMap) -> Option<&str> {
             cookies.split(';').find_map(|cookie| {
                 cookie
                     .trim()
-                    .strip_prefix("rig_session=")
+                    .strip_prefix("sivere_session=")
                     .filter(|value| matches!(*value, "alice" | "bob" | "admin"))
             })
         })

@@ -2,8 +2,8 @@
 
 Status: implemented qualification envelope, version 1, 2026-08-15
 
-Rig's first Rust target family discovers and drives the following Axum 0.8.9
-request sources through ordinary `rig run` on rustc 1.97.1. Discovery is bound to
+Sivere's first Rust target family discovers and drives the following Axum 0.8.9
+request sources through ordinary `sivere run` on rustc 1.97.1. Discovery is bound to
 compiler facts from the exact disposable Cargo build; campaign traffic and runtime
 findings remain bound to the signed attempt capability.
 
@@ -32,7 +32,7 @@ differential obligations.
 
 ## Fail-closed boundaries
 
-Rig does not claim these shapes from source spelling alone:
+Sivere does not claim these shapes from source spelling alone:
 
 - An `Extension<T>` without a uniquely registered, compiler-inventoried provider
   is unresolved.

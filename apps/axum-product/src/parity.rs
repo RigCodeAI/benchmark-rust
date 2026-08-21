@@ -24,7 +24,7 @@ impl<'de> Deserialize<'de> for EffectfulPayload {
         D: Deserializer<'de>,
     {
         let value = String::deserialize(deserializer)?;
-        let _ = std::fs::write("rig-owned-deserialization-effect", value.as_bytes());
+        let _ = std::fs::write("sivere-owned-deserialization-effect", value.as_bytes());
         Ok(Self(value))
     }
 }
@@ -53,7 +53,7 @@ async fn vulnerable(Query(input): Query<ParityInput>) -> &'static str {
     let _ = md5::compute(value.as_bytes());
     let _ = fastrand::u64(..);
 
-    let pattern = format!("(?i)((?:{0}|{0}{0})+)+(?>__rig_no_match__)", value);
+    let pattern = format!("(?i)((?:{0}|{0}{0})+)+(?>__sivere_no_match__)", value);
     let _ = evaluate_regex(&pattern, &value);
 
     let _ = CookieJar::new().add(Cookie::new("session", value.clone()));
@@ -284,7 +284,7 @@ mod tests {
     #[test]
     fn qualified_regex_coordinate_observes_pathological_execution() {
         let token = "IASTr00000001x1234567890abcdef";
-        let pattern = format!("(?i)((?:{0}|{0}{0})+)+(?>__rig_no_match__)", token);
+        let pattern = format!("(?i)((?:{0}|{0}{0})+)+(?>__sivere_no_match__)", token);
         let outcome = evaluate_regex(&pattern, token).unwrap();
         assert!(
             outcome.starts_with("operation_timeout") || outcome == "superlinear_growth",
@@ -295,18 +295,18 @@ mod tests {
     #[test]
     fn qualified_xml_coordinate_observes_external_entity_and_expansion_effects() {
         let canary = std::env::temp_dir().join(format!(
-            "rig-rust-xxe-canary-{}-{}",
+            "sivere-rust-xxe-canary-{}-{}",
             std::process::id(),
             std::thread::current().name().unwrap_or("test")
         ));
-        std::fs::write(&canary, "RIG_XXE_EFFECT").unwrap();
+        std::fs::write(&canary, "SIVERE_XXE_EFFECT").unwrap();
         let external = format!(
-            "<!DOCTYPE iast [<!ENTITY rig SYSTEM \"file://{}\">]><iast>&rig;</iast>",
+            "<!DOCTYPE iast [<!ENTITY sivere SYSTEM \"file://{}\">]><iast>&sivere;</iast>",
             canary.display()
         );
         let external_result = parse_external_entities(&external).unwrap();
         std::fs::remove_file(&canary).unwrap();
-        assert!(external_result.contains("RIG_XXE_EFFECT"));
+        assert!(external_result.contains("SIVERE_XXE_EFFECT"));
 
         let marker = "IASTr00000001x1234567890abcdef";
         let expansion = format!(

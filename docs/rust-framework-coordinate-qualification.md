@@ -2,7 +2,7 @@
 
 Status: qualification evidence, not Rust promotion, 2026-08-15
 
-Rig's Rust web adapter currently recognizes these exact coordinate families:
+Sivere's Rust web adapter currently recognizes these exact coordinate families:
 
 | Framework | Framework versions | rustc versions | Product result |
 | --- | --- | --- | --- |
@@ -11,7 +11,7 @@ Rig's Rust web adapter currently recognizes these exact coordinate families:
 
 The five-slice qualification contains vulnerable and safe SQL injection,
 command injection, path traversal, XSS, and SSRF obligations. Every matrix run
-uses ordinary `rig run`; the runner provisions the signed adapter into a
+uses ordinary `sivere run`; the runner provisions the signed adapter into a
 disposable copy, compiles with the repository-selected rustup toolchain,
 launches the real application, sends authenticated HTTP traffic, collects
 attempt-correlated runtime evidence, and seals and publishes the result.
@@ -40,7 +40,7 @@ extractors, route middleware, the existing Rust sink observers, and
 `service`/`configure` graphs, and unresolved resource/scope composition fail
 closed and cannot contribute to `COMPLETE`.
 
-The Actix adapter consumes and removes Rig's private request capability before
+The Actix adapter consumes and removes Sivere's private request capability before
 application code runs. It binds the grant to the exact route and method, emits
 hook health before traffic so every capture member can certify, and preserves
 target stdout/stderr on a mid-scan failure.
@@ -64,7 +64,7 @@ full-family capability blocker, not an adjacent-version accuracy pass, and the
 five-minute local SLO was also missed.
 
 Axum 0.8.8 and 0.8.9 retain one semantic catalog identity where their observed
-response-body and redirect contracts are the same, but Rig verifies the exact
+response-body and redirect contracts are the same, but Sivere verifies the exact
 registry checksum for the installed patch. A lockfile containing some other
 Axum patch cannot inherit either patch's authority.
 
@@ -75,7 +75,7 @@ but unqualified framework patch fails closed before product execution.
 ## Independent held-out gate
 
 Independent held-out evidence is deliberately not checked into this repository
-and was not available during this qualification. Rig therefore continues to
+and was not available during this qualification. Sivere therefore continues to
 report the held-out promotion gate as unsatisfied. Promotion requires three
 distinct external repository IDs, independently owned truth digests, vulnerable
 and safe coverage across all 43 categories, authenticated product evidence,
@@ -85,16 +85,16 @@ gate. See
 
 ## Reproduction
 
-Install the exact toolchains, build Rig, and run the fixture normally:
+Install the exact toolchains, build Sivere, and run the fixture normally:
 
 ```bash
 rustup toolchain install 1.96.1 --profile minimal
 rustup toolchain install 1.97.1 --profile minimal
-cargo build --release --bin rig --manifest-path native-runtime/Cargo.toml
+cargo build --release --bin sivere --manifest-path native-runtime/Cargo.toml
 
-OUTPUT="$(mktemp -d /tmp/rig-rust-framework.XXXXXX)/result"
+OUTPUT="$(mktemp -d /tmp/sivere-rust-framework.XXXXXX)/result"
 set +e
-native-runtime/target/release/rig run \
+native-runtime/target/release/sivere run \
   benchmarks/rust-framework-qualification-v1/actix-product \
   --framework actix-web \
   --output "$OUTPUT"

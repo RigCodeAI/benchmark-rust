@@ -98,7 +98,7 @@ async fn race_vulnerable_oracle(State(state): State<ApplicationState>) -> Status
 
 fn scheduled(headers: &HeaderMap) -> bool {
     headers
-        .get("x-rig-concurrency")
+        .get("x-sivere-concurrency")
         .and_then(|value| value.to_str().ok())
         == Some("release")
 }

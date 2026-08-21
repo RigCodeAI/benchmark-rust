@@ -2,7 +2,7 @@
 
 `scanner-results-v1.schema.json` is the vendor-neutral JSON submission format.
 SARIF 2.1.0 and the documented CSV format are accepted without conversion to a
-Rig publication. `public-scorecard-v1.schema.json` describes the JSON accuracy
+Sivere publication. `public-scorecard-v1.schema.json` describes the JSON accuracy
 scorecard.
 
 `qualification-evidence-v1.schema.json` is a copy of the stronger, separately

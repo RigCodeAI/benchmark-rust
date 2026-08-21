@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://rig.local/schemas/benchmark-rust-report-v2.json",
+  "$id": "https://sivere.local/schemas/benchmark-rust-report-v2.json",
   "title": "BenchmarkRust qualification report",
   "type": "object",
   "additionalProperties": false,
@@ -38,8 +38,8 @@
     "report_digest"
   ],
   "properties": {
-    "schema_version": { "const": "rig-benchmark-rust-report/v2" },
-    "suite_id": { "const": "rig-benchmark-rust-v1" },
+    "schema_version": { "const": "sivere-benchmark-rust-report/v2" },
+    "suite_id": { "const": "sivere-benchmark-rust-v1" },
     "suite_state": { "const": "QUALIFICATION" },
     "truth_digest": { "$ref": "#/$defs/digest" },
     "required_categories": { "const": 43 },

@@ -160,7 +160,7 @@ fn out_of_bounds_read_intercepted(value: &str) -> Result<String, Infallible> {
     }
     // SAFETY: the monitor above proves `index < bytes.len()` before the raw
     // access. The qualified vulnerable witness is the intercepted failing
-    // precondition; Rig never performs undefined behavior to demonstrate it.
+    // precondition; Sivere never performs undefined behavior to demonstrate it.
     let _ = unsafe { *bytes.as_ptr().add(index) };
     Ok(checked("read", true, bytes.len()))
 }

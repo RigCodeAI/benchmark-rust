@@ -17,6 +17,6 @@ fn main() {
         "BenchmarkRust must be compiled by the locked rustc 1.97.1 toolchain"
     );
     let host = std::env::var("HOST").expect("Cargo must provide HOST");
-    println!("cargo:rustc-env=RIG_BENCHMARK_RUSTC_COORDINATE=rustc-{version}-{host}");
+    println!("cargo:rustc-env=SIVERE_BENCHMARK_RUSTC_COORDINATE=rustc-{version}-{host}");
     println!("cargo:rerun-if-changed=build.rs");
 }
