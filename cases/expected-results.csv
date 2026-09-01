@@ -59,7 +59,7 @@ cwe-362-vulnerable,CWE-362,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axu
 cwe-362-safe,CWE-362,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-362-safe,WORKFLOW_SECURITY,,
 cwe-362-unknown,CWE-362,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,WORKFLOW_SECURITY,,declared_concurrency_invariant_required
 cwe-362-unsupported,CWE-362,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-400-vulnerable,CWE-400,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-product,/parity/vulnerable,/parity/vulnerable,regex,IAST.REGEX.DENIAL_OF_SERVICE,
+cwe-400-vulnerable,CWE-400,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-product,/parity/vulnerable,/parity/vulnerable,regex,IAST.REGEX.REDOS,
 cwe-400-safe,CWE-400,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,regex,,
 cwe-400-unknown,CWE-400,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,regex,,rust_regex_semantic_coordinate_unresolved
 cwe-400-unsupported,CWE-400,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -67,11 +67,11 @@ cwe-416-vulnerable,CWE-416,vulnerable,FINDING,true,RUNTIME_MEMORY,apps/axum-prod
 cwe-416-safe,CWE-416,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/rust-specific/cwe-416/safe,/rust-specific/cwe-416/safe,rust_memory_lifetime,,
 cwe-416-unknown,CWE-416,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/rust-specific/cwe-416/unknown,/rust-specific/cwe-416/unknown,rust_memory_lifetime,,rust_memory_lifetime_semantic_coordinate_unresolved
 cwe-416-unsupported,CWE-416,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-501-vulnerable,CWE-501,vulnerable,FINDING,true,RUNTIME_VALUE_FLOW,apps/axum-product,/parity/vulnerable,/parity/vulnerable,trust_boundary,IAST.TRUST_BOUNDARY.INJECTION,
+cwe-501-vulnerable,CWE-501,vulnerable,FINDING,true,RUNTIME_VALUE_FLOW,apps/axum-product,/parity/vulnerable,/parity/vulnerable,trust_boundary,IAST.TRUST_BOUNDARY.VIOLATION,
 cwe-501-safe,CWE-501,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,trust_boundary,,
 cwe-501-unknown,CWE-501,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,trust_boundary,,rust_trust_boundary_semantic_coordinate_unresolved
 cwe-501-unsupported,CWE-501,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-502-vulnerable,CWE-502,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/parity/vulnerable,/parity/vulnerable,deserialization,IAST.DESERIALIZATION.INJECTION,
+cwe-502-vulnerable,CWE-502,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/parity/vulnerable,/parity/vulnerable,deserialization,IAST.DESERIALIZATION.UNSAFE,
 cwe-502-safe,CWE-502,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,deserialization,,
 cwe-502-unknown,CWE-502,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,deserialization,,rust_deserialization_semantic_coordinate_unresolved
 cwe-502-unsupported,CWE-502,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -79,11 +79,11 @@ cwe-532-vulnerable,CWE-532,vulnerable,FINDING,true,RUNTIME_VALUE_FLOW,apps/axum-
 cwe-532-safe,CWE-532,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,sensitive_data,,
 cwe-532-unknown,CWE-532,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,sensitive_data,,rust_sensitive_data_semantic_coordinate_unresolved
 cwe-532-unsupported,CWE-532,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-601-vulnerable,CWE-601,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/parity/vulnerable,/parity/vulnerable,redirect,IAST.REDIRECT.INJECTION,
+cwe-601-vulnerable,CWE-601,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/parity/vulnerable,/parity/vulnerable,redirect,IAST.REDIRECT.UNVALIDATED,
 cwe-601-safe,CWE-601,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,redirect,,
 cwe-601-unknown,CWE-601,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,redirect,,rust_redirect_semantic_coordinate_unresolved
 cwe-601-unsupported,CWE-601,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-611-vulnerable,CWE-611,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-product,/parity/vulnerable,/parity/vulnerable,xml_external_entity,IAST.XML_EXTERNAL_ENTITY.INJECTION,
+cwe-611-vulnerable,CWE-611,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-product,/parity/vulnerable,/parity/vulnerable,xml_external_entity,IAST.XML.EXTERNAL_ENTITY,
 cwe-611-safe,CWE-611,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,xml_external_entity,,
 cwe-611-unknown,CWE-611,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,xml_external_entity,,rust_xml_external_entity_semantic_coordinate_unresolved
 cwe-611-unsupported,CWE-611,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
@@ -95,15 +95,15 @@ cwe-639-vulnerable,CWE-639,vulnerable,FINDING,true,RUNTIME_DIFFERENTIAL,apps/axu
 cwe-639-safe,CWE-639,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,,cwe-639-safe,ACCESS_CONTROL,,
 cwe-639-unknown,CWE-639,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,,apps/axum-product,ACCESS_CONTROL,,declared_tenant_policy_required
 cwe-639-unsupported,CWE-639,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-643-vulnerable,CWE-643,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/parity/vulnerable,/parity/vulnerable,xml_query,IAST.XML_QUERY.INJECTION,
+cwe-643-vulnerable,CWE-643,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/parity/vulnerable,/parity/vulnerable,xml_query,IAST.XPATH.INJECTION,
 cwe-643-safe,CWE-643,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,xml_query,,
 cwe-643-unknown,CWE-643,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,xml_query,,rust_xml_query_semantic_coordinate_unresolved
 cwe-643-unsupported,CWE-643,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-776-vulnerable,CWE-776,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-product,/parity/vulnerable,/parity/vulnerable,xml_entity_expansion,IAST.XML_ENTITY_EXPANSION.INJECTION,
+cwe-776-vulnerable,CWE-776,vulnerable,FINDING,true,RUNTIME_EFFECT,apps/axum-product,/parity/vulnerable,/parity/vulnerable,xml_entity_expansion,IAST.XML.ENTITY_EXPANSION,
 cwe-776-safe,CWE-776,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/parity/safe,/parity/safe,xml_entity_expansion,,
 cwe-776-unknown,CWE-776,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/parity/unknown,/parity/unknown,xml_entity_expansion,,rust_xml_entity_expansion_semantic_coordinate_unresolved
 cwe-776-unsupported,CWE-776,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
-cwe-78-vulnerable,CWE-78,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/process/shell,/process/shell,process,IAST.PROCESS.INJECTION,
+cwe-78-vulnerable,CWE-78,vulnerable,FINDING,true,RUNTIME_SEMANTIC,apps/axum-product,/process/shell,/process/shell,process,IAST.COMMAND.INJECTION,
 cwe-78-safe,CWE-78,safe,CLEAN,true,CLOSED_DENOMINATOR,apps/axum-product,/process/argv,/process/argv,process,,
 cwe-78-unknown,CWE-78,unknown,UNKNOWN,false,CAPABILITY_GAP,apps/axum-product,/process/stored-builder,/process/stored-builder,process,,rust_macro_expanded_sink_requires_runtime_interposition
 cwe-78-unsupported,CWE-78,unsupported,UNSUPPORTED,false,UNSUPPORTED_COORDINATE,controls/unqualified-coordinate,,controls/unqualified-coordinate,unqualified runtime or framework coordinate,,
