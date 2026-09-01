@@ -43,8 +43,11 @@ async fn controller_login(Form(login): Form<Login>) -> (StatusCode, HeaderMap, &
     let mut headers = HeaderMap::new();
     headers.insert(
         header::SET_COOKIE,
-        HeaderValue::from_str(&format!("sivere_session={}; Path=/; HttpOnly", login.username))
-            .expect("fixed benchmark identity is a valid cookie"),
+        HeaderValue::from_str(&format!(
+            "sivere_session={}; Path=/; HttpOnly",
+            login.username
+        ))
+        .expect("fixed benchmark identity is a valid cookie"),
     );
     (StatusCode::OK, headers, "authenticated")
 }
@@ -67,18 +70,23 @@ fn protected(allowed: bool) -> (StatusCode, &'static str) {
 }
 
 async fn cwe_284_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers).is_some())
 }
 
 async fn cwe_284_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("alice"))
 }
 
 async fn cwe_287_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
+    let _ = headers.get("authorization");
     protected(session(&headers).is_some() || headers.contains_key(header::AUTHORIZATION))
 }
 
 async fn cwe_287_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("alice"))
 }
 
@@ -87,14 +95,17 @@ async fn cwe_306_vulnerable() -> (StatusCode, &'static str) {
 }
 
 async fn cwe_306_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("alice"))
 }
 
 async fn cwe_352_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("alice"))
 }
 
 async fn cwe_352_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     let token = headers
         .get("x-csrf-token")
         .and_then(|value| value.to_str().ok());
@@ -102,26 +113,32 @@ async fn cwe_352_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
 }
 
 async fn cwe_639_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers).is_some())
 }
 
 async fn cwe_639_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("alice"))
 }
 
 async fn cwe_862_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers).is_some())
 }
 
 async fn cwe_862_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("alice"))
 }
 
 async fn cwe_863_vulnerable(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers).is_some())
 }
 
 async fn cwe_863_safe(headers: HeaderMap) -> (StatusCode, &'static str) {
+    let _ = headers.get("cookie");
     protected(session(&headers) == Some("admin"))
 }
 

@@ -33,6 +33,7 @@ async fn race_safe_reset(State(state): State<ApplicationState>) -> StatusCode {
 }
 
 async fn race_safe_claim(State(state): State<ApplicationState>, headers: HeaderMap) -> StatusCode {
+    let _ = headers.get("x-sivere-concurrency");
     if !scheduled(&headers) {
         return StatusCode::CONFLICT;
     }
@@ -68,6 +69,7 @@ async fn race_vulnerable_claim(
     State(state): State<ApplicationState>,
     headers: HeaderMap,
 ) -> StatusCode {
+    let _ = headers.get("x-sivere-concurrency");
     if !scheduled(&headers) {
         return StatusCode::CONFLICT;
     }

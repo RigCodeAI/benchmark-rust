@@ -12,14 +12,16 @@ pub(super) fn service_routes() -> Router<ApplicationState> {
 }
 
 async fn service_control(headers: HeaderMap) -> StatusCode {
+    let _ = headers.get("x-sivere-protocol-correlation");
     call_witness(&headers).await
 }
 
-async fn service_safe(_headers: HeaderMap) -> StatusCode {
+async fn service_safe() -> StatusCode {
     StatusCode::OK
 }
 
 async fn service_vulnerable(headers: HeaderMap) -> StatusCode {
+    let _ = headers.get("x-sivere-protocol-correlation");
     call_witness(&headers).await
 }
 
