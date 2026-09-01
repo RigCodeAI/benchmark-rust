@@ -861,7 +861,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "regex",
-      "rule_id": "IAST.REGEX.DENIAL_OF_SERVICE",
+      "rule_id": "IAST.REGEX.REDOS",
       "reason_code": null
     },
     {
@@ -973,7 +973,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "trust_boundary",
-      "rule_id": "IAST.TRUST_BOUNDARY.INJECTION",
+      "rule_id": "IAST.TRUST_BOUNDARY.VIOLATION",
       "reason_code": null
     },
     {
@@ -1029,7 +1029,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "deserialization",
-      "rule_id": "IAST.DESERIALIZATION.INJECTION",
+      "rule_id": "IAST.DESERIALIZATION.UNSAFE",
       "reason_code": null
     },
     {
@@ -1141,7 +1141,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "redirect",
-      "rule_id": "IAST.REDIRECT.INJECTION",
+      "rule_id": "IAST.REDIRECT.UNVALIDATED",
       "reason_code": null
     },
     {
@@ -1197,7 +1197,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "xml_external_entity",
-      "rule_id": "IAST.XML_EXTERNAL_ENTITY.INJECTION",
+      "rule_id": "IAST.XML.EXTERNAL_ENTITY",
       "reason_code": null
     },
     {
@@ -1365,7 +1365,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "xml_query",
-      "rule_id": "IAST.XML_QUERY.INJECTION",
+      "rule_id": "IAST.XPATH.INJECTION",
       "reason_code": null
     },
     {
@@ -1421,7 +1421,7 @@
       "route": "/parity/vulnerable",
       "source_location": "/parity/vulnerable",
       "sink_location": "xml_entity_expansion",
-      "rule_id": "IAST.XML_ENTITY_EXPANSION.INJECTION",
+      "rule_id": "IAST.XML.ENTITY_EXPANSION",
       "reason_code": null
     },
     {
@@ -1477,7 +1477,7 @@
       "route": "/process/shell",
       "source_location": "/process/shell",
       "sink_location": "process",
-      "rule_id": "IAST.PROCESS.INJECTION",
+      "rule_id": "IAST.COMMAND.INJECTION",
       "reason_code": null
     },
     {
